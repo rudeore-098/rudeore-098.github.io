@@ -33,20 +33,20 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 /* Page grid: name and main column on the left, photo and sidebar share the right column */
 .page {
-  max-width: 900px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 44px 28px 56px;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 210px;
+  grid-template-columns: minmax(0, 1fr) 240px;
   grid-template-areas: "head photo" "content sidebar";
-  column-gap: 40px;
+  column-gap: 56px;
 }
 .head { grid-area: head; min-width: 0; align-self: end; }
 .photo { grid-area: photo; align-self: end; }
 .content { grid-area: content; min-width: 0; }
 .sidebar { grid-area: sidebar; min-width: 0; }
 
-.photo img { display: block; width: 100%; max-width: 210px; aspect-ratio: 3 / 4; height: auto; object-fit: cover; border-radius: 4px; background: #eef1f4; }
+.photo img { display: block; width: 100%; max-width: 240px; aspect-ratio: 3 / 4; height: auto; object-fit: cover; border-radius: 4px; background: #eef1f4; }
 
 .head h1 { font-family: var(--serif); font-weight: 900; font-size: 46px; line-height: 1.05; letter-spacing: -0.005em; color: var(--navy); margin: 0; text-wrap: balance; }
 .head .role { color: var(--ink-2); font-size: 16px; margin: 6px 0 0; }
