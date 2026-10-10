@@ -3,10 +3,11 @@
   --ink-2: #555;
   --ink-3: #777;
   --line: #e6e4df;
-  --navy: #26457a;
+  --accent: #7b2333;
+  --accent-dark: #5c1925;
   --bg: #ffffff;
-  --serif: 'Merriweather', Georgia, 'Times New Roman', serif;
-  --sans: 'Source Sans 3', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --serif: 'DM Serif Display', Georgia, 'Times New Roman', serif;
+  --sans: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --ui: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   color-scheme: light;
   scroll-behavior: smooth;
@@ -15,9 +16,9 @@
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 15px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
 img { max-width: 100%; }
-a { color: var(--navy); text-decoration: none; }
+a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; text-underline-offset: 3px; }
-:focus-visible { outline: 2px solid var(--navy); outline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
 .skip-link { position: absolute; top: -60px; left: 12px; z-index: 20; background: var(--ink); color: #fff; padding: 8px 12px; }
 .skip-link:focus { top: 12px; }
@@ -48,12 +49,12 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 .photo img { display: block; width: 100%; max-width: 240px; aspect-ratio: 3 / 4; height: auto; object-fit: cover; border-radius: 4px; background: #eef1f4; }
 
-.head h1 { font-family: var(--serif); font-weight: 900; font-size: 46px; line-height: 1.05; letter-spacing: -0.005em; color: var(--navy); margin: 0; text-wrap: balance; }
+.head h1 { font-family: var(--serif); font-weight: 400; font-size: 50px; line-height: 1.05; letter-spacing: 0; color: var(--accent); margin: 0; text-wrap: balance; }
 .head .role { color: var(--ink-2); font-size: 16px; margin: 6px 0 0; }
 .head .summary { color: #333; max-width: 62ch; margin: 14px 0 0; }
 
 /* Section headings */
-h2 { font-size: 14px; font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase; color: var(--navy); margin: 22px 0 8px; }
+h2 { font-size: 12.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin: 22px 0 8px; }
 .content > section:first-child h2,
 .sidebar > section:first-child h2 { margin-top: 28px; }
 
@@ -66,8 +67,8 @@ h2 { font-size: 14px; font-weight: 700; letter-spacing: 0.02em; text-transform: 
 .item-title { font-size: 15px; font-weight: 600; margin: 0; line-height: 1.45; }
 .item-title > a:not(.badge) { color: var(--ink); }
 .item-meta { font-weight: 400; color: #666; }
-.badge { display: inline-block; font-size: 10.5px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: #fff; background: var(--navy); border-radius: 3px; padding: 1px 6px; margin-left: 4px; vertical-align: 1px; line-height: 1.5; white-space: nowrap; }
-.badge:hover { text-decoration: none; background: #1b3360; }
+.badge { display: inline-block; font-size: 10.5px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: #fff; background: var(--accent); border-radius: 3px; padding: 1px 6px; margin-left: 4px; vertical-align: 1px; line-height: 1.5; white-space: nowrap; }
+.badge:hover { text-decoration: none; background: var(--accent-dark); }
 
 /* Sidebar */
 .sidebar .item { grid-template-columns: 1fr; }
@@ -75,7 +76,7 @@ h2 { font-size: 14px; font-weight: 700; letter-spacing: 0.02em; text-transform: 
 .contact-list { display: grid; gap: 8px; margin: 0; font-size: 13.5px; }
 .contact-list dt { font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #888; }
 .contact-list dd { margin: 0; overflow-wrap: anywhere; }
-.copy-email { font: inherit; color: var(--navy); background: none; border: 0; padding: 0; cursor: pointer; text-align: left; overflow-wrap: anywhere; }
+.copy-email { font: inherit; color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer; text-align: left; overflow-wrap: anywhere; }
 .copy-email:hover { text-decoration: underline; text-underline-offset: 3px; }
 .skill-list { margin: 0; padding-left: 18px; }
 .skill-list li { padding: 1px 0; }
@@ -89,7 +90,7 @@ h2 { font-size: 14px; font-weight: 700; letter-spacing: 0.02em; text-transform: 
 /* Detail pages (pages/*.html) */
 .detail { max-width: 720px; margin: 0 auto; padding: 40px 28px 56px; }
 .detail .back { font-family: var(--ui); font-size: 13px; }
-.detail h1 { font-family: var(--serif); font-weight: 900; font-size: 36px; line-height: 1.15; color: var(--navy); margin: 18px 0 6px; text-wrap: balance; }
+.detail h1 { font-family: var(--serif); font-weight: 400; font-size: 40px; line-height: 1.15; color: var(--accent); margin: 18px 0 6px; text-wrap: balance; }
 .detail .lede { color: var(--ink-2); font-size: 16px; margin: 0; }
 .detail .facts { display: flex; flex-wrap: wrap; gap: 6px 24px; margin: 18px 0 0; padding: 12px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); font-size: 13.5px; }
 .detail .facts dt { font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #888; }
