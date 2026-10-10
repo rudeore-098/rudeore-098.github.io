@@ -10,6 +10,7 @@ GitHub Pages에 바로 올릴 수 있는 이력서형 정적 사이트입니다.
 | `styles.css` | 전체 스타일 |
 | `script.js` | 연도 표시, 메일 주소 복사 |
 | `assets/profile.jpg` | 프로필 사진(지금은 자리 표시 이미지) |
+| `assets/projects/` | 프로젝트 이미지(지금은 자리 표시 이미지): 메인 목록 썸네일 `*-thumb.jpg`, 소개 페이지 대표 이미지 `*-cover.jpg`, 스크린샷 `*-shot-1.jpg` 등 |
 | `files/` | 내려받는 파일: `cv.pdf`, `project-two-report.pdf`, `paper-one.pdf`(지금은 예시 PDF) |
 | `pages/` | 프로젝트·연구 소개 페이지: `project-one.html`, `research-one.html` |
 
@@ -19,7 +20,12 @@ GitHub Pages에 바로 올릴 수 있는 이력서형 정적 사이트입니다.
 2. **메일 주소**: 모든 HTML 파일에서 `you@example.com`을 찾아 실제 주소로 바꿉니다. `data-email` 속성과 화면에 보이는 글자 모두 바꿔야 합니다.
 3. **사진**: `assets/profile.jpg`를 본인 사진으로 교체합니다. 세로 3:4 비율이 가장 잘 맞고, 다른 비율도 칸에 맞게 잘려서 채워집니다.
 4. **PDF 파일**: `files/`의 예시 PDF를 같은 이름의 실제 파일로 교체합니다. 이름을 바꾸면 HTML의 링크도 함께 바꿔 주세요.
-5. **항목 추가**: 각 섹션의 `<article class="item">` 블록을 복사해서 내용을 바꿉니다.
+5. **프로젝트 이미지**: `assets/projects/`의 자리 표시 이미지를 같은 이름의 실제 이미지로 교체합니다.
+   - 썸네일(`project-one-thumb.jpg` 등): 가로 3:2, 메인 Projects 목록 왼쪽에 작게 나옵니다.
+   - 대표 이미지(`project-one-cover.jpg`): 가로 16:9, 소개 페이지 맨 위에 넓게 나옵니다.
+   - 스크린샷(`project-one-shot-1.jpg` 등): 가로 3:2, 소개 페이지 본문에 2열로 나옵니다. 더 넣으려면 `pages/project-one.html`의 `<figure>` 블록을 복사합니다.
+   - 비율이 달라도 칸에 맞게 잘려서 채워집니다. 썸네일이 필요 없는 항목은 `has-thumb` 클래스와 `item-thumb` 링크를 지우면 됩니다.
+6. **항목 추가**: 각 섹션의 `<article class="item">` 블록을 복사해서 내용을 바꿉니다.
 
 ## 프로젝트·연구 링크 방식
 
