@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="Project One by Your Name." />
+    <title>Project One · Your Name</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-nav">
+      <a class="logo" href="../">yourname</a>
+      <nav aria-label="Main">
+        <a href="../files/cv.pdf" download>CV (PDF)</a>
+        <button type="button" class="copy-email" data-email="you@example.com">Contact</button>
+      </nav>
+    </header>
+
+    <main id="main" class="detail">
+      <a class="back" href="../">← Back to résumé</a>
+      <h1>Project One</h1>
+      <p class="lede">One sentence on what this project is and who it is for.</p>
+
+      <dl class="facts">
+        <div><dt>Year</dt><dd>2026</dd></div>
+        <div><dt>Role</dt><dd>Your role</dd></div>
+        <div><dt>Stack</dt><dd>Web, TypeScript</dd></div>
+      </dl>
+
+      <h2>Problem</h2>
+      <p>Describe the problem this project solves and why it matters.</p>
+
+      <h2>What I did</h2>
+      <ul>
+        <li>Your main contribution.</li>
+        <li>A technical decision you made and why.</li>
+      </ul>
+
+      <h2>Result</h2>
+      <p>What changed because of this project. Numbers help if you have them.</p>
+
+      <h2>Links</h2>
+      <div class="links">
+        <a class="badge" href="https://github.com/rudeore-098" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </main>
+
+    <footer class="site-foot">© <span id="year"></span> yourname</footer>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="../script.js"></script>
+  </body>
+</html>
