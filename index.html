@@ -60,37 +60,35 @@
 
         <section aria-labelledby="projects-title">
           <h2 id="projects-title">Projects</h2>
-          <!-- PAGE: links to a page in pages/. PDF: downloads a file from files/.
-               Thumbnails live in assets/projects/ (3:2). -->
+          <!-- Each project links to its Notion write-up (opens in a new tab).
+               Thumbnails live in assets/projects/ (3:2). Add <p class="item-date">YEAR</p> to show a year. -->
           <article class="item has-thumb">
-            <a class="item-thumb" href="pages/project-one.html" tabindex="-1" aria-hidden="true">
-              <img src="assets/projects/project-one-thumb.jpg" alt="" width="600" height="400" loading="lazy" />
+            <a class="item-thumb" href="https://rudeor0928.notion.site/SeatCatcher-3f5f535510f781be9b8efd3d3f18e90b?source=copy_link" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+              <img src="assets/projects/seatcatcher-thumb.jpg" alt="" width="600" height="400" loading="lazy" />
             </a>
-            <p class="item-date">2026</p>
             <div class="item-body">
               <h3 class="item-title">
-                <a href="pages/project-one.html">Project One</a>
-                <span class="item-meta">· Web, TypeScript</span>
-                <a class="badge" href="pages/project-one.html" aria-label="Project One page">Page</a>
+                <a href="https://rudeor0928.notion.site/SeatCatcher-3f5f535510f781be9b8efd3d3f18e90b?source=copy_link" target="_blank" rel="noopener noreferrer">SeatCatcher</a>
+                <span class="item-meta">· Spring Boot, JPA, FCM</span>
+                <a class="badge" href="https://rudeor0928.notion.site/SeatCatcher-3f5f535510f781be9b8efd3d3f18e90b?source=copy_link" target="_blank" rel="noopener noreferrer" aria-label="SeatCatcher on Notion (opens in a new tab)">Notion</a>
               </h3>
               <ul>
-                <li>One line on the problem and your contribution.</li>
+                <li>Backend for a subway seat-sharing app: report and route-history APIs, FCM push notifications and in-app inbox, with per-user access control and service tests.</li>
               </ul>
             </div>
           </article>
           <article class="item has-thumb">
-            <a class="item-thumb" href="files/project-two-report.pdf" download tabindex="-1" aria-hidden="true">
-              <img src="assets/projects/project-two-thumb.jpg" alt="" width="600" height="400" loading="lazy" />
+            <a class="item-thumb" href="https://rudeor0928.notion.site/STACKPOT-3f5f535510f781cc9f51e587cd4b8b2f?source=copy_link" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+              <img src="assets/projects/stackpot-thumb.jpg" alt="" width="600" height="400" loading="lazy" />
             </a>
-            <p class="item-date">2025</p>
             <div class="item-body">
               <h3 class="item-title">
-                <a href="files/project-two-report.pdf" download>Project Two</a>
-                <span class="item-meta">· ML, Python</span>
-                <a class="badge" href="files/project-two-report.pdf" download aria-label="Download Project Two report (PDF)">PDF</a>
+                <a href="https://rudeor0928.notion.site/STACKPOT-3f5f535510f781cc9f51e587cd4b8b2f?source=copy_link" target="_blank" rel="noopener noreferrer">STACKPOT</a>
+                <span class="item-meta">· Spring Boot, JWT, Redis, Docker</span>
+                <a class="badge" href="https://rudeor0928.notion.site/STACKPOT-3f5f535510f781cc9f51e587cd4b8b2f?source=copy_link" target="_blank" rel="noopener noreferrer" aria-label="STACKPOT on Notion (opens in a new tab)">Notion</a>
               </h3>
               <ul>
-                <li>One line on the result.</li>
+                <li>Backend for a team-activity service: Kakao login with JWT and Redis, sign-up flow for temporary users, feed and task APIs, and Blue/Green deployment with GitHub Actions.</li>
               </ul>
             </div>
           </article>
@@ -159,6 +157,7 @@
         <section aria-labelledby="education-title">
           <h2 id="education-title">Education</h2>
           <article class="item">
+            <p class="item-date">2023 – Present</p>
             <div class="item-body">
               <h3 class="item-title">Soongsil University</h3>
               <p>Computer Science and Engineering</p>
@@ -180,10 +179,9 @@
         <section aria-labelledby="activities-title">
           <h2 id="activities-title">Activities</h2>
           <article class="item">
-            <p class="item-date">2024 – 2025</p>
             <div class="item-body">
-              <h3 class="item-title">Club or community</h3>
-              <p>Role</p>
+              <h3 class="item-title">UMC 7th</h3>
+              <p>Spring Boot</p>
             </div>
           </article>
         </section>
