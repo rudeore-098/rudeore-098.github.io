@@ -49,7 +49,7 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 .photo img { display: block; width: 100%; max-width: 240px; aspect-ratio: 3 / 4; height: auto; object-fit: cover; border-radius: 4px; background: #eef1f4; }
 
-.head h1 { font-family: var(--serif); font-weight: 400; font-size: 50px; line-height: 1.05; letter-spacing: 0; color: var(--accent); margin: 0; text-wrap: balance; }
+.head h1 { font-family: var(--serif); font-weight: 400; font-size: 50px; line-height: 1.05; letter-spacing: 0; color: var(--ink); margin: 0; text-wrap: balance; }
 .head .role { color: var(--ink-2); font-size: 16px; margin: 6px 0 0; }
 .head .summary { color: #333; max-width: 62ch; margin: 14px 0 0; }
 
