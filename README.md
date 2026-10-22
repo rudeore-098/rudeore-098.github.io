@@ -11,7 +11,7 @@ GitHub Pages에 바로 올릴 수 있는 이력서형 정적 사이트입니다.
 | `script.js` | 연도 표시, 메일 주소 복사 |
 | `assets/profile.jpg` | 프로필 사진(지금은 자리 표시 이미지) |
 | `assets/projects/` | 메인 Projects 목록 썸네일(프로젝트 로고): `seatcatcher-thumb.png`, `stackpot-thumb.png`, `mohassu-thumb.png` |
-| `files/` | 내려받는 파일: `cv.pdf`(지금은 예시 PDF), `paper-one.pdf`(예시 PDF, 현재 어디에도 연결되지 않음) |
+| `files/` | 내려받는 파일: `cv.pdf`(지금은 예시 PDF), `slm-coastal-surveillance-risk-classification.pdf`(논문) |
 | `pages/` | 논문 소개 페이지: `research-one.html`(SLM 기반 해안 경계 이벤트 위험도 분류) |
 
 ## 내용 바꾸기
