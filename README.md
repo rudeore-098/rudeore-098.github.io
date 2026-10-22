@@ -6,7 +6,7 @@ GitHub Pages에 바로 올릴 수 있는 이력서형 정적 사이트입니다.
 
 | 경로 | 내용 |
 | --- | --- |
-| `index.html` | 메인 페이지(이력서). 본문은 Experience → Projects → Honours & Awards → Publications & Research, 오른쪽 사이드바는 Contact → Key Skills → Education → Certifications → Activities |
+| `index.html` | 메인 페이지(이력서). 본문은 Experience → Projects → Honours & Awards → Publications & Research, 오른쪽 사이드바는 Contact → Key Skills → Education → Certifications |
 | `styles.css` | 전체 스타일 |
 | `script.js` | 연도 표시, 메일 주소 복사 |
 | `assets/profile.jpg` | 프로필 사진(지금은 자리 표시 이미지) |
