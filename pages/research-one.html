@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#ffffff" />
-    <meta name="description" content="Research by Wonseok Choi." />
-    <title>Paper or research title · Wonseok Choi</title>
+    <meta name="description" content="Small Language Model-Based Risk Classification of Coastal Surveillance Events. 2026 KIMST Annual Conference." />
+    <title>Small Language Model-Based Risk Classification of Coastal Surveillance Events · Wonseok Choi</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" />
@@ -24,26 +24,37 @@
 
     <main id="main" class="detail">
       <a class="back" href="../">← Back to résumé</a>
-      <h1>Paper or research title</h1>
-      <p class="lede"><i>Wonseok Choi</i>, Co-author. <i>Conference or journal</i>, 2025.</p>
+      <h1>Small Language Model-Based Risk Classification of Coastal Surveillance Events</h1>
+      <p class="lede">Seon Hong Lee, <strong>Wonseok Choi</strong>, Woojoon Lee, Yuchan Kim. <i>2026 KIMST Annual Conference.</i></p>
 
       <dl class="facts">
-        <div><dt>Year</dt><dd>2025</dd></div>
-        <div><dt>Venue</dt><dd>Conference or journal</dd></div>
-        <div><dt>Topic</dt><dd>Research area</dd></div>
+        <div><dt>Year</dt><dd>2026</dd></div>
+        <div><dt>Venue</dt><dd>KIMST Annual Conference</dd></div>
+        <div><dt>Keywords</dt><dd>Small Language Model, PEFT, QLoRA, Coastal Surveillance, Classification</dd></div>
       </dl>
 
       <h2>Abstract</h2>
-      <p>A short summary of the question, the method and the main finding.</p>
+      <p>This study proposes an SLM-based model for classifying coastal surveillance events and generating brief situation reports. A dataset of 926 generalized event samples was constructed and split into training, validation, and test dataset. The QLoRA-based PEFT model outperformed the baseline model, demonstrating its potential for automated risk detection and reporting.</p>
 
-      <h2>My contribution</h2>
+      <h2>Method</h2>
       <ul>
-        <li>What you did in this research.</li>
+        <li>Built 926 instruction-format samples (471 risk, 455 normal), each with a risk label and a short situation report. Data was generalized to exclude classified or sensitive information and reviewed by Marine Corps personnel.</li>
+        <li>Split the data 8:1:1 into training, validation and test sets.</li>
+        <li>Evaluated <code>kanana-1.5-2.1b-instruct-2505</code> as the baseline without extra training, then fine-tuned it with QLoRA and compared both on the same test set.</li>
       </ul>
 
-      <h2>Files</h2>
-      <div class="links">
-        <a class="badge" href="../files/paper-one.pdf" download>Download PDF</a>
+      <h2>Results</h2>
+      <div class="table-wrap">
+        <table>
+          <caption>Test set performance of the baseline and the QLoRA model</caption>
+          <thead>
+            <tr><th scope="col">Model</th><th scope="col">Accuracy</th><th scope="col">Macro precision</th><th scope="col">Macro recall</th><th scope="col">Macro F1</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Baseline</th><td>0.6344</td><td>0.7311</td><td>0.6444</td><td>0.6007</td></tr>
+            <tr><th scope="row">PEFT (QLoRA)</th><td>0.9462</td><td>0.9466</td><td>0.9458</td><td>0.9461</td></tr>
+          </tbody>
+        </table>
       </div>
     </main>
 
