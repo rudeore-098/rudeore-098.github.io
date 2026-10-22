@@ -53,6 +53,23 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .head .role { color: var(--ink-2); font-size: 16px; margin: 6px 0 0; }
 .head .summary { color: #333; max-width: 62ch; margin: 14px 0 0; }
 
+/* Header entrance: name, role and intro rise in turn, then the two intro phrases get a highlighter */
+.head h1, .head .role, .head .summary { animation: rise 0.6s ease both; }
+.head .role { animation-delay: 0.15s; }
+.head .summary { animation-delay: 0.3s; }
+@keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.head mark { color: inherit; background: linear-gradient(transparent 58%, rgba(123, 35, 51, 0.16) 58%) left / 0 100% no-repeat; animation: highlight 0.7s 0.95s ease forwards; }
+.head mark:nth-of-type(2) { animation-delay: 1.35s; }
+@keyframes highlight { to { background-size: 100% 100%; } }
+
+/* Name fills with the accent from left to right on hover (pointer devices only) */
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  @media (hover: hover) {
+    .name-fill { background: linear-gradient(90deg, var(--accent) 50%, var(--ink) 50%) right / 200% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; transition: background-position 0.5s ease; }
+    .head h1:hover .name-fill { background-position: left; }
+  }
+}
+
 /* Section headings */
 h2 { font-size: 12.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin: 22px 0 8px; }
 .content > section:first-child h2,
@@ -137,4 +154,7 @@ h2 { font-size: 12.5px; font-weight: 700; letter-spacing: 0.1em; text-transform:
 @media (prefers-reduced-motion: reduce) {
   :root { scroll-behavior: auto; }
   .toast { transition: none; }
+  .head h1, .head .role, .head .summary, .head mark { animation: none; }
+  .head mark { background-size: 100% 100%; }
+  .name-fill { transition: none; }
 }
