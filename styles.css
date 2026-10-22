@@ -58,8 +58,8 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 .head .role { animation-delay: 0.15s; }
 .head .summary { animation-delay: 0.3s; }
 @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
-.head mark { color: inherit; background: linear-gradient(transparent 58%, rgba(123, 35, 51, 0.16) 58%) left / 0 100% no-repeat; animation: highlight 0.7s 0.95s ease forwards; }
-.head mark:nth-of-type(2) { animation-delay: 1.35s; }
+.head .hl { background: linear-gradient(transparent 58%, rgba(123, 35, 51, 0.16) 58%) left / 0 100% no-repeat; animation: highlight 0.7s 0.95s ease forwards; }
+.head .hl:nth-of-type(2) { animation-delay: 1.35s; }
 @keyframes highlight { to { background-size: 100% 100%; } }
 
 /* Name fills with the accent from left to right on hover (pointer devices only) */
@@ -154,7 +154,7 @@ h2 { font-size: 12.5px; font-weight: 700; letter-spacing: 0.1em; text-transform:
 @media (prefers-reduced-motion: reduce) {
   :root { scroll-behavior: auto; }
   .toast { transition: none; }
-  .head h1, .head .role, .head .summary, .head mark { animation: none; }
-  .head mark { background-size: 100% 100%; }
+  .head h1, .head .role, .head .summary, .head .hl { animation: none; }
+  .head .hl { background-size: 100% 100%; }
   .name-fill { transition: none; }
 }
