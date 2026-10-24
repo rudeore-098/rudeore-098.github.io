@@ -13,7 +13,7 @@ GitHub Pages에 바로 올릴 수 있는 이력서형 정적 사이트입니다.
 | `assets/projects/` | 메인 Projects 목록 썸네일(프로젝트 로고): `seatcatcher-thumb.png`, `stackpot-thumb.png`, `mohassu-thumb.png` |
 | `assets/news/` | 논문 페이지 In the News 사진: `kimst-2026.jpg` (출처: 한양대 ERICA, 중앙일보 기사) |
 | `files/` | 내려받는 파일: `cv.pdf`(지금은 예시 PDF), `slm-coastal-surveillance-risk-classification.pdf`(논문) |
-| `pages/` | 논문 소개 페이지: `research-one.html`(SLM 기반 해안 경계 이벤트 위험도 분류) |
+| `pages/` | 논문 소개 페이지: `research-one.html`(SLM 기반 해안 경계 이벤트 위험도 분류), `k-guard.html`(군사 도메인 특화 LLM 가드레일 및 벤치마크, 진행 중) |
 
 ## 내용 바꾸기
 

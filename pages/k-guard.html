@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="Building a Military Domain-Specific LLM Guardrail and Benchmark (K-Guard). Research in progress by Wonseok Choi." />
+    <title>Building a Military Domain-Specific LLM Guardrail and Benchmark · Wonseok Choi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" />
+    <link rel="stylesheet" href="../styles.css?v=20261024" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-nav">
+      <a class="logo" href="../">Wonseok Choi</a>
+      <nav aria-label="Main">
+        <a href="../files/cv.pdf" download>CV (PDF)</a>
+        <button type="button" class="copy-email" data-email="rudeore0928@gmail.com">Contact</button>
+      </nav>
+    </header>
+
+    <main id="main" class="detail">
+      <a class="back" href="../">← Back to résumé</a>
+      <h1>Building a Military Domain-Specific LLM Guardrail and Benchmark</h1>
+      <p class="lede"><span class="status">In progress</span> ROK Marine Corps Headquarters and Hanyang University ERICA. Since Aug 2026.</p>
+
+      <dl class="facts">
+        <div><dt>Status</dt><dd>In progress (since Aug 2026)</dd></div>
+        <div><dt>Model</dt><dd>K-Guard, fine-tuned from kanana-safeguard-8b</dd></div>
+        <div><dt>Method</dt><dd>QLoRA</dd></div>
+        <div><dt>Language</dt><dd>Korean</dd></div>
+      </dl>
+
+      <h2>Motivation</h2>
+      <p>General-purpose LLMs can be pushed past their safety rules through prompt injection and jailbreak attacks. In a military setting, that can lead to leaks of classified information, breaches of military discipline and hostile ideological influence. Existing guardrails such as LLM Guard and Llama Guard are built for general harms and do not reflect military terms, operational language or the rules of military organizations, so a risky request written in that language can pass as a normal one.</p>
+
+      <h2>Approach</h2>
+      <ul>
+        <li><strong>Risk categories.</strong> Military secrets (requests to obtain, infer or leak non-public military information), military discipline (requests that undermine the chain of command or help evade regulations) and ideology (hostile propaganda or incitement to refuse duty aimed at the military, not general political discussion).</li>
+        <li><strong>Keywords from service members.</strong> Candidate keywords were collected from service members, and 100 were selected per category. No real classified or operational information was collected.</li>
+        <li><strong>Safe and risky pairs.</strong> Each keyword gets one safe sentence and one risky sentence, giving 600 base prompts. Pairing them teaches the model to judge the purpose of a request rather than react to a keyword.</li>
+        <li><strong>Korean evasion patterns.</strong> Military slang and Hangul jamo decomposition (for example, 횡령 written as ㅎㅚㅇㄹㅕㅇ) are applied to both safe and risky sentences.</li>
+        <li><strong>Augmentation and review.</strong> The dataset is being expanded with LLM-generated variants and reviewed by active-duty service members.</li>
+        <li><strong>K-Guard.</strong> kanana-safeguard-8b, a Korean safety classifier, is fine-tuned with QLoRA to predict whether a prompt is safe and which risk category it falls into, then compared with general-purpose guardrails on the benchmark.</li>
+      </ul>
+
+      <h2>Status</h2>
+      <p>The paper is being written. Results will be added when the experiments are complete.</p>
+    </main>
+
+    <footer class="site-foot">© <span id="year"></span> Wonseok Choi</footer>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="../script.js?v=20261024"></script>
+  </body>
+</html>
