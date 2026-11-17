@@ -86,6 +86,7 @@ h2 { font-size: 12.5px; font-weight: 700; letter-spacing: 0.1em; text-transform:
 .item-meta { font-weight: 400; color: #666; }
 .badge { display: inline-block; font-size: 10.5px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: #fff; background: var(--accent); border-radius: 3px; padding: 1px 6px; margin-left: 4px; vertical-align: 1px; line-height: 1.5; white-space: nowrap; }
 .badge:hover { text-decoration: none; background: var(--accent-dark); }
+.pending { margin: 0; padding: 5px 0; color: var(--ink-3); font-style: italic; }
 .status { display: inline-block; font-size: 10.5px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); border-radius: 3px; padding: 0 5px; margin-left: 4px; vertical-align: 1px; line-height: 1.5; white-space: nowrap; }
 
 /* Project thumbnails: thumbnail | title and bullets | date */
