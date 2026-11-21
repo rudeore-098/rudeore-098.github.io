@@ -1,231 +1,79 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#ffffff" />
-    <meta name="description" content="Résumé and portfolio of Wonseok Choi: experience, projects, awards, research and education." />
+    <meta name="theme-color" content="#f8f6fb" />
+    <meta name="description" content="Wonseok Choi의 포트폴리오와 개발 블로그: 프로젝트, 연구, 기록." />
     <title>Wonseok Choi</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" />
-    <link rel="stylesheet" href="styles.css?v=20261117" />
+    <link rel="stylesheet" href="styles.css?v=20261122" />
   </head>
   <body>
-    <a class="skip-link" href="#main">Skip to content</a>
+    <a class="skip-link" href="#main">본문으로 건너뛰기</a>
 
     <header class="site-nav">
-      <a class="logo" href="./">Wonseok Choi</a>
-      <nav aria-label="Main">
-        <a href="files/cv.pdf" download>CV (PDF)</a>
-        <button type="button" class="copy-email" data-email="rudeore0928@gmail.com">Contact</button>
-      </nav>
+      <div class="wrap">
+        <a class="logo" href="./">Wonseok Choi</a>
+        <nav aria-label="주 메뉴">
+          <a href="portfolio/">포트폴리오</a>
+          <a href="blog/">블로그</a>
+        </nav>
+      </div>
     </header>
 
-    <main id="main" class="page">
-      <!-- Replace assets/profile.jpg with your photo (portrait, 3:4). -->
-      <div class="photo">
-        <img src="assets/profile.jpg" alt="Portrait of Wonseok Choi" width="600" height="800" />
-      </div>
-
-      <header class="head">
-        <h1><span class="name-fill">Wonseok Choi</span></h1>
+    <main id="main" class="wrap">
+      <header class="intro" lang="en">
+        <h1>Wonseok Choi</h1>
         <p class="role">Computer Science Engineer &amp; Researcher</p>
         <p class="summary">I aim to be a developer who <span class="hl">doesn&rsquo;t fear change</span> and <span class="hl">backs every choice with evidence</span>.</p>
       </header>
 
-      <div class="content">
-        <section aria-labelledby="experience-title">
-          <h2 id="experience-title">Experience &amp; Activities</h2>
-          <article class="item">
-            <p class="item-date">Feb 2026 – Nov 2026</p>
-            <div class="item-body">
-              <h3 class="item-title">AI Developer <span class="item-meta">· AITF, ROK Marine Corps Headquarters</span></h3>
-              <ul>
-                <li>Built AI agents.</li>
-                <li>Enhanced the RAG (retrieval-augmented generation) system.</li>
-                <li>Set up servers.</li>
-              </ul>
-            </div>
-          </article>
-          <article class="item">
-            <p class="item-date">Sep 2024 – Feb 2025</p>
-            <div class="item-body">
-              <h3 class="item-title">UMC 7th <span class="item-meta">· Spring Boot</span></h3>
-              <ul>
-                <li>Completed Spring Boot training.</li>
-                <li>Participated in team projects.</li>
-              </ul>
-            </div>
-          </article>
-          <article class="item">
-            <p class="item-date">Nov 2023 – Dec 2024</p>
-            <div class="item-body">
-              <h3 class="item-title">President <span class="item-meta">· COM:et, 28th Student Council</span></h3>
-              <p>School of Computer Science and Engineering, Soongsil University</p>
-            </div>
-          </article>
-        </section>
-
-        <section aria-labelledby="projects-title">
-          <h2 id="projects-title">Projects</h2>
-          <!-- Each project links to its Notion write-up (opens in a new tab).
-               Thumbnails live in assets/projects/ (3:2). -->
-          <article class="item has-thumb">
-            <a class="item-thumb" href="https://rudeor0928.notion.site/SeatCatcher-3f5f535510f781be9b8efd3d3f18e90b?source=copy_link" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-              <img src="assets/projects/seatcatcher-thumb.png" alt="" width="600" height="400" loading="lazy" />
+      <section class="section" aria-labelledby="works-title">
+        <div class="section-head">
+          <h2 id="works-title">프로젝트·활동</h2>
+          <a class="more" href="portfolio/">포트폴리오 전체 보기</a>
+        </div>
+        <!-- Link rule (spec §5): approved post > existing link (Notion, new tab) > plain card. -->
+        <ul class="cards">
+          <li>
+            <a class="card" href="https://rudeor0928.notion.site/SeatCatcher-3f5f535510f781be9b8efd3d3f18e90b?source=copy_link" target="_blank" rel="noopener noreferrer">
+              <img src="assets/projects/seatcatcher-thumb.png" alt="" width="600" height="400" />
+              <h3 class="card-title">SeatCatcher<span class="sr-only"> (Notion, 새 탭에서 열림)</span></h3>
+              <p class="card-meta" lang="en">May – Aug 2025 · Spring Boot, JPA, FCM</p>
+              <p class="card-desc" lang="en">Backend for a subway seat-sharing app: report and route-history APIs, FCM push notifications and in-app inbox, with per-user access control and service tests.</p>
             </a>
-            <p class="item-date">May – Aug 2025</p>
-            <div class="item-body">
-              <h3 class="item-title">
-                <a href="https://rudeor0928.notion.site/SeatCatcher-3f5f535510f781be9b8efd3d3f18e90b?source=copy_link" target="_blank" rel="noopener noreferrer">SeatCatcher</a>
-                <span class="item-meta">· Spring Boot, JPA, FCM</span>
-                <a class="badge" href="https://rudeor0928.notion.site/SeatCatcher-3f5f535510f781be9b8efd3d3f18e90b?source=copy_link" target="_blank" rel="noopener noreferrer" aria-label="SeatCatcher on Notion (opens in a new tab)">Notion</a>
-              </h3>
-              <ul>
-                <li>Backend for a subway seat-sharing app: report and route-history APIs, FCM push notifications and in-app inbox, with per-user access control and service tests.</li>
-              </ul>
-            </div>
-          </article>
-          <article class="item has-thumb">
-            <a class="item-thumb" href="https://rudeor0928.notion.site/STACKPOT-3f5f535510f781cc9f51e587cd4b8b2f?source=copy_link" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-              <img src="assets/projects/stackpot-thumb.png" alt="" width="600" height="400" loading="lazy" />
+          </li>
+          <li>
+            <a class="card" href="https://rudeor0928.notion.site/STACKPOT-3f5f535510f781cc9f51e587cd4b8b2f?source=copy_link" target="_blank" rel="noopener noreferrer">
+              <img src="assets/projects/stackpot-thumb.png" alt="" width="600" height="400" />
+              <h3 class="card-title">STACKPOT<span class="sr-only"> (Notion, 새 탭에서 열림)</span></h3>
+              <p class="card-meta" lang="en">2024 – Feb 2025 · Spring Boot, JWT, Redis, Docker</p>
+              <p class="card-desc" lang="en">Backend for a team-activity service: Kakao login with JWT and Redis, sign-up flow for temporary users, feed and task APIs, and Blue/Green deployment with GitHub Actions.</p>
             </a>
-            <p class="item-date">2024 – Feb 2025</p>
-            <div class="item-body">
-              <h3 class="item-title">
-                <a href="https://rudeor0928.notion.site/STACKPOT-3f5f535510f781cc9f51e587cd4b8b2f?source=copy_link" target="_blank" rel="noopener noreferrer">STACKPOT</a>
-                <span class="item-meta">· Spring Boot, JWT, Redis, Docker</span>
-                <a class="badge" href="https://rudeor0928.notion.site/STACKPOT-3f5f535510f781cc9f51e587cd4b8b2f?source=copy_link" target="_blank" rel="noopener noreferrer" aria-label="STACKPOT on Notion (opens in a new tab)">Notion</a>
-              </h3>
-              <ul>
-                <li>Backend for a team-activity service: Kakao login with JWT and Redis, sign-up flow for temporary users, feed and task APIs, and Blue/Green deployment with GitHub Actions.</li>
-              </ul>
-            </div>
-          </article>
-          <article class="item has-thumb">
-            <a class="item-thumb" href="https://rudeor0928.notion.site/MohaSSU-Android-Firebase-3f5f535510f7812a9a82ca604d71166d?source=copy_link" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
-              <img src="assets/projects/mohassu-thumb.png" alt="" width="600" height="400" loading="lazy" />
+          </li>
+          <li>
+            <a class="card" href="https://rudeor0928.notion.site/MohaSSU-Android-Firebase-3f5f535510f7812a9a82ca604d71166d?source=copy_link" target="_blank" rel="noopener noreferrer">
+              <img src="assets/projects/mohassu-thumb.png" alt="" width="600" height="400" />
+              <h3 class="card-title">MohaSSU<span class="sr-only"> (Notion, 새 탭에서 열림)</span></h3>
+              <p class="card-meta" lang="en">Nov – Dec 2024 · Android, Java, Firebase</p>
+              <p class="card-desc" lang="en">Android app for checking friends' profiles and timetables: Firebase Authentication and Firestore integration, two-way friend relationships, and a live current-class indicator built from timetables.</p>
             </a>
-            <p class="item-date">Nov – Dec 2024</p>
-            <div class="item-body">
-              <h3 class="item-title">
-                <a href="https://rudeor0928.notion.site/MohaSSU-Android-Firebase-3f5f535510f7812a9a82ca604d71166d?source=copy_link" target="_blank" rel="noopener noreferrer">MohaSSU</a>
-                <span class="item-meta">· Android, Java, Firebase</span>
-                <a class="badge" href="https://rudeor0928.notion.site/MohaSSU-Android-Firebase-3f5f535510f7812a9a82ca604d71166d?source=copy_link" target="_blank" rel="noopener noreferrer" aria-label="MohaSSU on Notion (opens in a new tab)">Notion</a>
-              </h3>
-              <ul>
-                <li>Android app for checking friends' profiles and timetables: Firebase Authentication and Firestore integration, two-way friend relationships, and a live current-class indicator built from timetables.</li>
-              </ul>
-            </div>
-          </article>
-        </section>
+          </li>
+        </ul>
+      </section>
 
-        <section aria-labelledby="awards-title">
-          <h2 id="awards-title">Honours &amp; Awards</h2>
-          <p class="pending">To be updated.</p>
-        </section>
-
-        <section aria-labelledby="research-title">
-          <h2 id="research-title">Publications &amp; Research</h2>
-          <article class="item">
-            <p class="item-date">Aug 2026 – Present</p>
-            <div class="item-body">
-              <h3 class="item-title">
-                <a href="pages/k-guard.html">Building a Military Domain-Specific LLM Guardrail and Benchmark</a>
-                <span class="status">In progress</span>
-                <a class="badge" href="pages/k-guard.html" aria-label="Research page">Page</a>
-              </h3>
-              <p>A Korean military-domain safety benchmark (military secrets, military discipline, ideology) and K-Guard, a guard model fine-tuned from kanana-safeguard-8b with QLoRA.</p>
-            </div>
-          </article>
-          <article class="item">
-            <p class="item-date">2026</p>
-            <div class="item-body">
-              <h3 class="item-title">
-                <a href="pages/research-one.html">Small Language Model-Based Risk Classification of Coastal Surveillance Events</a>
-                <a class="badge" href="files/slm-coastal-surveillance-risk-classification.pdf" download aria-label="Download paper (PDF)">PDF</a>
-                <a class="badge" href="pages/research-one.html" aria-label="Paper page">Page</a>
-              </h3>
-              <p>Seon Hong Lee, <strong>Wonseok Choi</strong>, Woojoon Lee, Yuchan Kim. <i>Korea Institute of Military Science and Technology (KIMST) Annual Conference, 2026.</i></p>
-            </div>
-          </article>
-        </section>
-      </div>
-
-      <aside class="sidebar" aria-label="Details">
-        <section aria-labelledby="contact-title">
-          <h2 id="contact-title">Contact</h2>
-          <dl class="contact-list">
-            <div>
-              <dt>Email</dt>
-              <dd><button type="button" class="copy-email" data-email="rudeore0928@gmail.com">rudeore0928@gmail.com</button></dd>
-            </div>
-            <div>
-              <dt>GitHub</dt>
-              <dd><a href="https://github.com/rudeore-098" target="_blank" rel="noopener noreferrer">rudeore-098</a></dd>
-            </div>
-            <div>
-              <dt>Blog</dt>
-              <dd><a href="https://velog.io/@rude_ore098/posts" target="_blank" rel="noopener noreferrer">velog.io/@rude_ore098</a></dd>
-            </div>
-            <div>
-              <dt>Location</dt>
-              <dd>Seoul, Korea</dd>
-            </div>
-          </dl>
-        </section>
-
-        <section aria-labelledby="skills-title">
-          <h2 id="skills-title">Key Skills</h2>
-          <ul class="skill-list">
-            <li>PyTorch</li>
-            <li>Python</li>
-            <li>Spring Boot</li>
-            <li>C</li>
-            <li>C++</li>
-          </ul>
-        </section>
-
-        <section aria-labelledby="education-title">
-          <h2 id="education-title">Education</h2>
-          <article class="item">
-            <p class="item-date">2023 – Present</p>
-            <div class="item-body">
-              <h3 class="item-title">Soongsil University</h3>
-              <p>Computer Science and Engineering</p>
-            </div>
-          </article>
-        </section>
-
-        <section aria-labelledby="certs-title">
-          <h2 id="certs-title">Certifications</h2>
-          <article class="item">
-            <p class="item-date">Jun 2026</p>
-            <div class="item-body">
-              <h3 class="item-title">SQL Developer (SQLD)</h3>
-              <p>Korea Data Agency</p>
-            </div>
-          </article>
-          <article class="item">
-            <p class="item-date">Jun 2026</p>
-            <div class="item-body">
-              <h3 class="item-title">Advanced Data Analytics Semi-Professional (ADsP)</h3>
-              <p>Korea Data Agency</p>
-            </div>
-          </article>
-          <article class="item">
-            <div class="item-body">
-              <h3 class="item-title">Craftsman Information Processing</h3>
-              <p>HRD Korea</p>
-            </div>
-          </article>
-        </section>
-      </aside>
+      <section class="section" aria-labelledby="latest-title">
+        <div class="section-head">
+          <h2 id="latest-title">최신 글</h2>
+          <a class="more" href="blog/">블로그 전체 보기</a>
+        </div>
+        <!-- Only posts with a confirmed publish date go here, newest first:
+             <ul class="post-list"><li><time class="date" datetime="2026-12-01">2026.12.01</time><div><a class="title" href="blog/slug/">제목</a><p class="summary">요약</p></div></li></ul> -->
+        <p class="empty">아직 게시일이 확인된 글이 없습니다. <a href="blog/">블로그 전체 보기</a>에서 연구 기록을 읽을 수 있습니다.</p>
+      </section>
     </main>
 
     <footer class="site-foot">© <span id="year"></span> Wonseok Choi</footer>
-    <div class="toast" id="toast" role="status" aria-live="polite"></div>
-    <script src="script.js?v=20261117"></script>
+    <script src="script.js?v=20261122"></script>
   </body>
 </html>

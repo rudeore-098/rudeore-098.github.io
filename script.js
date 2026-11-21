@@ -12,15 +12,15 @@ function showToast(message) {
   toastTimer = setTimeout(() => toast.classList.remove('show'), 2000);
 }
 
-// Contact and email buttons copy the address instead of opening a mail app.
+// Copy buttons next to the mailto link; on failure the toast shows the address instead.
 document.querySelectorAll('.copy-email').forEach((button) => {
   button.addEventListener('click', async () => {
     const email = button.dataset.email;
     try {
       await navigator.clipboard.writeText(email);
-      showToast(`Copied: ${email}`);
+      showToast(`복사했습니다: ${email}`);
     } catch {
-      showToast(`Email: ${email}`);
+      showToast(`이메일: ${email}`);
     }
   });
 });

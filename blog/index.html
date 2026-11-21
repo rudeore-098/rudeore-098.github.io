@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f8f6fb" />
+    <meta name="description" content="Wonseok Choi 블로그: 프로젝트, 연구, 대회, 수상, 공부 기록." />
+    <title>블로그 · Wonseok Choi</title>
+    <link rel="stylesheet" href="../styles.css?v=20261122" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
+    <header class="site-nav">
+      <div class="wrap">
+        <a class="logo" href="../">Wonseok Choi</a>
+        <nav aria-label="주 메뉴">
+          <a href="../portfolio/">포트폴리오</a>
+          <a href="./" aria-current="page">블로그</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="wrap">
+      <header>
+        <h1 class="page-title">블로그</h1>
+        <p class="page-lede">프로젝트 소개부터 상세 기록까지</p>
+        <!-- Only groups with public posts get a link here. -->
+        <ul class="type-links" aria-label="유형별 이동">
+          <li><a href="#research">연구</a></li>
+        </ul>
+      </header>
+
+      <!-- Within a group: posts with a publish date newest first, then undated existing material.
+           Row with date: <li><time class="date" datetime="2026-12-01">2026.12.01</time><div><a class="title" href="slug/">제목</a><p class="summary">요약</p></div></li> -->
+      <section class="section" id="project" aria-labelledby="project-title">
+        <h2 id="project-title">프로젝트</h2>
+        <p class="empty">아직 공개된 글이 없습니다.</p>
+      </section>
+
+      <section class="section" id="research" aria-labelledby="research-title">
+        <h2 id="research-title">연구</h2>
+        <ul class="post-list">
+          <li><div lang="en"><a class="title" href="../pages/k-guard.html">Building a Military Domain-Specific LLM Guardrail and Benchmark</a><p class="summary">A Korean military-domain safety benchmark (military secrets, military discipline, ideology) and K-Guard, a guard model fine-tuned from kanana-safeguard-8b with QLoRA.</p></div></li>
+          <li><div lang="en"><a class="title" href="../pages/research-one.html">Small Language Model-Based Risk Classification of Coastal Surveillance Events</a><p class="summary">Seon Hong Lee, <strong>Wonseok Choi</strong>, Woojoon Lee, Yuchan Kim. <i>Korea Institute of Military Science and Technology (KIMST) Annual Conference, 2026.</i></p></div></li>
+        </ul>
+      </section>
+
+      <section class="section" id="competition" aria-labelledby="competition-title">
+        <h2 id="competition-title">대회</h2>
+        <p class="empty">아직 공개된 글이 없습니다.</p>
+      </section>
+
+      <section class="section" id="award" aria-labelledby="award-title">
+        <h2 id="award-title">수상</h2>
+        <p class="empty">아직 공개된 글이 없습니다.</p>
+      </section>
+
+      <section class="section" id="study" aria-labelledby="study-title">
+        <h2 id="study-title">공부</h2>
+        <p class="empty">아직 공개된 글이 없습니다.</p>
+      </section>
+    </main>
+
+    <footer class="site-foot">© <span id="year"></span> Wonseok Choi</footer>
+    <script src="../script.js?v=20261122"></script>
+  </body>
+</html>
