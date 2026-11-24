@@ -111,12 +111,13 @@ h2 { font-size: 21px; line-height: 1.4; margin: 40px 0 8px; }
 .related h2 { text-align: center; font-size: 18px; }
 
 /* Blog post list */
-.post-list { margin: 32px auto 0; padding: 0; list-style: none; max-width: 44rem; }
+.post-list { margin: 32px 0 0; padding: 0; list-style: none; }
 .post-list li { padding: 18px 0; border-bottom: 1px solid var(--line); }
 .post-list li:first-child { border-top: 1px solid var(--line); }
 .post-list .title { display: block; color: var(--ink); text-decoration: none; font-size: 20px; font-weight: 600; line-height: 1.45; }
 .post-list .title:hover { color: var(--accent); text-decoration: underline; text-decoration-color: var(--accent-soft); }
-.post-list .summary { margin: 6px 0 0; color: var(--ink-2); font-size: 15px; line-height: 1.7; }
+/* Rows span the page; summaries stop at a readable line length */
+.post-list .summary { margin: 6px 0 0; max-width: 80ch; color: var(--ink-2); font-size: 15px; line-height: 1.7; }
 .post-meta { margin: 8px 0 0; font-family: var(--sans); font-size: 13px; }
 .post-meta .cat { color: var(--accent); font-weight: 600; }
 .post-meta .tag:first-of-type { margin-left: 12px; }
