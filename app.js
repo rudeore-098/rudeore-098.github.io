@@ -132,15 +132,13 @@ function renderPost() {
   const article = $('main article');
   const heads = [...article.querySelectorAll('h2')];
   if (heads.length < 2) return;
-  heads.forEach((h, i) => { h.id ||= `s${i + 1}`; });
+  // tabindex -1 lets a TOC jump move keyboard focus to the section
+  heads.forEach((h, i) => { h.id ||= `s${i + 1}`; h.tabIndex = -1; });
   const toc = document.createElement('nav');
   toc.className = 'toc';
   toc.setAttribute('aria-label', '목차');
   toc.innerHTML = `<p>목차</p><ol>${heads.map((h) => `<li><a href="#${h.id}">${esc(h.textContent)}</a></li>`).join('')}</ol>`;
-  const layout = document.createElement('div');
-  layout.className = 'post-layout';
-  article.before(layout);
-  layout.append(article, toc);
+  article.after(toc);
   // Mark the section currently near the top of the screen.
   const links = toc.querySelectorAll('a');
   const observer = new IntersectionObserver((entries) => {

@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="text-scale" content="scale" />
     <meta name="theme-color" content="#ffffff" />
     <meta name="description" content="Small Language Model-Based Risk Classification of Coastal Surveillance Events. Korea Institute of Military Science and Technology (KIMST) Annual Conference, 2026." />
     <title>Small Language Model-Based Risk Classification of Coastal Surveillance Events · Wonseok Choi</title>
@@ -10,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap" />
-    <link rel="stylesheet" href="../styles.css?v=20261124e" />
+    <link rel="stylesheet" href="../styles.css?v=20261124g" />
   </head>
   <body data-page="post" data-root="../">
     <a class="skip-link" href="#main">본문으로 건너뛰기</a>
@@ -51,9 +52,9 @@
       </ul>
 
       <h2>Results</h2>
-      <div class="table-wrap">
+      <div class="table-wrap" tabindex="0" role="region" aria-labelledby="results-caption">
         <table>
-          <caption>Test set performance of the baseline and the QLoRA model</caption>
+          <caption id="results-caption">Test set performance of the baseline and the QLoRA model</caption>
           <thead>
             <tr><th scope="col">Model</th><th scope="col">Accuracy</th><th scope="col">Macro precision</th><th scope="col">Macro recall</th><th scope="col">Macro F1</th></tr>
           </thead>
@@ -85,7 +86,7 @@
 
     <footer class="site-foot">© <span id="year"></span> Wonseok Choi</footer>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
-    <script src="../data.js?v=20261124e"></script>
-    <script src="../app.js?v=20261124e"></script>
+    <script src="../data.js?v=20261124g"></script>
+    <script src="../app.js?v=20261124g"></script>
   </body>
 </html>
