@@ -31,7 +31,7 @@ GitHub Pages에 바로 올릴 수 있는 정적 사이트입니다(HTML·CSS·�
   - 연구: `overview`, `authors`, `venue`, `method`, `result`, `links`
   - 활동: `role`, `contributions`, `links`
 - `posts`: 관련 글의 주소 목록(예: `['pages/k-guard.html']`). 상세 하단 `관련 포스트`에 나오고, 비어 있으면 그 영역은 숨겨집니다.
-- 실제로 확인한 내용만 넣습니다. 수상은 아직 항목이 없어 메인에 "To be updated."가 보입니다.
+- 실제로 확인한 내용만 넣습니다. 항목이 없는 섹션은 메인에 "To be updated."가 보입니다.
 
 ## 새 글 발행 순서
 

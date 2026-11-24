@@ -23,7 +23,7 @@ window.SITE = {
     ],
   },
 
-  categories: [{ id: 'ai-research', name: 'AI·연구' }, { id: 'project', name: '프로젝트' }],
+  categories: [{ id: 'ai-research', name: 'AI·연구' }, { id: 'project', name: '프로젝트' }, { id: 'review', name: '후기' }],
 
   posts: [
     {
@@ -61,6 +61,20 @@ window.SITE = {
       tags: ['Android', 'Firebase'],
       summary: 'Firebase 인증과 사용자 데이터를 Android 화면에 연결하고, 친구 관계·시간표·현재 수업 확인 기능을 개발했습니다.',
     },
+    {
+      url: 'pages/cmc-hackathon.html', lang: 'ko',
+      title: 'CMC 11th Hackathon Team 4 | Backend',
+      category: 'project',
+      tags: ['AWS', 'Spring Boot', 'Swagger', 'GitHub Actions'],
+      summary: '집안일을 나누는 서비스의 AWS 인프라를 구성하고, API 서버에서 Swagger 에러 문서 자동화, QA 결함 수정, 문서·코드 일치 검사를 맡았습니다.',
+    },
+    {
+      url: 'pages/hackathon-review.html', lang: 'ko',
+      title: '11th NE(O)RDINARY HACKATHON 대회 후기',
+      category: 'review',
+      tags: ['해커톤', '대상', 'AWS'],
+      summary: 'CMC와 UMC가 함께한 무박 2일 해커톤에서 서버와 AWS 인프라를 맡아 대상을 받기까지의 기록입니다.',
+    },
   ],
 
   // Section order on the main page, and labels used everywhere.
@@ -87,6 +101,7 @@ window.SITE = {
       summary: 'Completed Spring Boot training and participated in team projects.',
       detail: {
         contributions: ['Completed Spring Boot training.', 'Participated in team projects.'],
+        links: [{ label: 'STACKPOT', url: 'item/?id=stackpot' }],
       },
     },
     {
@@ -129,6 +144,20 @@ window.SITE = {
         links: [{ label: 'Notion', url: 'https://rudeor0928.notion.site/MohaSSU-Android-Firebase-3f5f535510f7812a9a82ca604d71166d?source=copy_link' }],
       },
       posts: ['pages/mohassu.html'],
+    },
+
+    {
+      id: 'neordinary-hackathon', type: 'award', title: 'Grand Prize, 11th NE(O)RDINARY HACKATHON', org: 'CMC × UMC',
+      period: 'Nov 2026', start: '2026-11', end: '2026-11',
+      summary: 'Grand Prize (대상) at a two-day CMC × UMC hackathon; built the AWS infrastructure and worked on the backend for Team 4.',
+      detail: {
+        contest: '11th NE(O)RDINARY HACKATHON, hosted by CMC and UMC at Chung-Ang University (Nov 21–22, 2026, overnight).',
+        prize: 'Grand Prize (대상), among 8 teams.',
+        entry: 'A service for people who share a home to share how they feel and take over each other’s chores (topic: 권태 + 집 × 덜어내기).',
+        contributions: ['Built the AWS infrastructure: EC2 reached through SSM, RDS and S3.', 'Reviewed the ERD and API spec with the other server developer (7 tables, 36 APIs).', 'Focused on QA after the APIs were built, using tools to automate testing.'],
+        links: [{ label: 'GitHub (team-4-backend)', url: 'https://github.com/cmc-11th-hackathon-Team-4/team-4-backend' }],
+      },
+      posts: ['pages/hackathon-review.html', 'pages/cmc-hackathon.html'],
     },
 
     {
