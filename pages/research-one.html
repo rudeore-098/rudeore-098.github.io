@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap" />
-    <link rel="stylesheet" href="../styles.css?v=20261124g" />
+    <link rel="stylesheet" href="../styles.css?v=20261124h" />
   </head>
   <body data-page="post" data-root="../">
     <a class="skip-link" href="#main">본문으로 건너뛰기</a>
@@ -31,7 +31,59 @@
     <main id="main" class="wrap detail post-page">
       <a class="back" href="../blog/">← 블로그 목록</a>
       <p class="post-type">AI·연구</p>
-      <article lang="en">
+      <article>
+      <div class="post-lang" lang="ko">
+      <h1>SLM 기반 해안 경계 이벤트 위험도 분류</h1>
+      <p class="lede">이선홍, <strong>최원석</strong>, 이우준, 김유찬. <i>2026 한국군사과학기술학회 종합학술대회.</i></p>
+
+      <dl class="facts">
+        <div><dt>연도</dt><dd>2026</dd></div>
+        <div><dt>발표</dt><dd>한국군사과학기술학회(KIMST) 종합학술대회</dd></div>
+        <div><dt>키워드</dt><dd>소형 언어모델(SLM), PEFT, QLoRA, 해안 경계, 분류</dd></div>
+      </dl>
+
+      <h2>초록</h2>
+      <p>이 연구는 해안 경계 이벤트를 분류하고 간략한 상황 보고문을 생성하는 SLM 기반 모델을 제안합니다. 일반화한 이벤트 샘플 926개로 데이터셋을 만들어 학습·검증·테스트 데이터로 나누었습니다. QLoRA 기반 PEFT 모델이 기준 모델보다 높은 성능을 보여, 위험 탐지와 보고를 자동화할 가능성을 확인했습니다.</p>
+
+      <h2>방법</h2>
+      <ul>
+        <li>위험 라벨과 짧은 상황 보고문이 붙은 지시문 형식 샘플 926개(위험 471개, 정상 455개)를 만들었습니다. 기밀이나 민감한 정보가 들어가지 않도록 데이터를 일반화했고, 해병대 인원이 검토했습니다.</li>
+        <li>데이터를 8:1:1로 나누어 학습·검증·테스트 세트를 만들었습니다.</li>
+        <li><code>kanana-1.5-2.1b-instruct-2505</code>를 추가 학습 없이 기준 모델로 평가한 뒤, QLoRA로 미세조정해 같은 테스트 세트에서 두 모델을 비교했습니다.</li>
+      </ul>
+
+      <h2>결과</h2>
+      <div class="table-wrap" tabindex="0" role="region" aria-labelledby="results-caption-ko">
+        <table>
+          <caption id="results-caption-ko">테스트 세트에서 기준 모델과 QLoRA 모델의 성능</caption>
+          <thead>
+            <tr><th scope="col">모델</th><th scope="col">정확도</th><th scope="col">매크로 정밀도</th><th scope="col">매크로 재현율</th><th scope="col">매크로 F1</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">기준 모델</th><td>0.6344</td><td>0.7311</td><td>0.6444</td><td>0.6007</td></tr>
+            <tr><th scope="row">PEFT (QLoRA)</th><td>0.9462</td><td>0.9466</td><td>0.9458</td><td>0.9461</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>언론 보도</h2>
+      <ul>
+        <li>
+          <a href="https://www.joongang.co.kr/article/25439388" target="_blank" rel="noopener noreferrer">한양대 ERICA와 해병대가 한국군사과학기술학회에서 AI 교육 성과를 발표<span class="sr-only">(새 탭에서 열림)</span></a>
+          · <i>중앙일보</i>, 2026년 6월 24일. 이 논문의 바탕이 된 군·학 AI 교육 프로그램과 2026년 6월 10~12일 학술대회 발표를 다룬 기사입니다.
+        </li>
+      </ul>
+      <figure class="news-photo">
+        <img src="../assets/news/kimst-2026.jpg" alt="2026 한국군사과학기술학회 종합학술대회 안내판 앞에 선 한양대 ERICA 교수진과 해병대 장병" width="609" height="274" loading="lazy" />
+        <figcaption>2026 한국군사과학기술학회 종합학술대회에 참석한 한양대 ERICA 교수진과 해병대 장병. 사진: 한양대 ERICA, 중앙일보 제공.</figcaption>
+      </figure>
+
+      <h2>파일</h2>
+      <div class="links">
+        <a class="badge" href="../files/slm-coastal-surveillance-risk-classification.pdf" download>PDF 내려받기</a>
+      </div>
+      </div>
+      <div class="post-lang" lang="en" hidden>
       <h1>Small Language Model-Based Risk Classification of Coastal Surveillance Events</h1>
       <p class="lede">Seon Hong Lee, <strong>Wonseok Choi</strong>, Woojoon Lee, Yuchan Kim. <i>Korea Institute of Military Science and Technology (KIMST) Annual Conference, 2026.</i></p>
 
@@ -52,9 +104,9 @@
       </ul>
 
       <h2>Results</h2>
-      <div class="table-wrap" tabindex="0" role="region" aria-labelledby="results-caption">
+      <div class="table-wrap" tabindex="0" role="region" aria-labelledby="results-caption-en">
         <table>
-          <caption id="results-caption">Test set performance of the baseline and the QLoRA model</caption>
+          <caption id="results-caption-en">Test set performance of the baseline and the QLoRA model</caption>
           <thead>
             <tr><th scope="col">Model</th><th scope="col">Accuracy</th><th scope="col">Macro precision</th><th scope="col">Macro recall</th><th scope="col">Macro F1</th></tr>
           </thead>
@@ -81,12 +133,13 @@
       <div class="links">
         <a class="badge" href="../files/slm-coastal-surveillance-risk-classification.pdf" download>Download PDF</a>
       </div>
+      </div>
       </article>
     </main>
 
     <footer class="site-foot">© <span id="year"></span> Wonseok Choi</footer>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
-    <script src="../data.js?v=20261124g"></script>
-    <script src="../app.js?v=20261124g"></script>
+    <script src="../data.js?v=20261124h"></script>
+    <script src="../app.js?v=20261124h"></script>
   </body>
 </html>

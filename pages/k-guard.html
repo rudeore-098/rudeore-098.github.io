@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap" />
-    <link rel="stylesheet" href="../styles.css?v=20261124g" />
+    <link rel="stylesheet" href="../styles.css?v=20261124h" />
   </head>
   <body data-page="post" data-root="../">
     <a class="skip-link" href="#main">본문으로 건너뛰기</a>
@@ -31,7 +31,35 @@
     <main id="main" class="wrap detail post-page">
       <a class="back" href="../blog/">← 블로그 목록</a>
       <p class="post-type">AI·연구</p>
-      <article lang="en">
+      <article>
+      <div class="post-lang" lang="ko">
+      <h1>군사 도메인 특화 LLM 가드레일 및 벤치마크 구축</h1>
+      <p class="lede"><span class="status">진행 중</span> 해병대사령부·한양대학교 ERICA. 2026년 8월부터.</p>
+
+      <dl class="facts">
+        <div><dt>상태</dt><dd>진행 중 (2026년 8월부터)</dd></div>
+        <div><dt>모델</dt><dd>K-Guard, kanana-safeguard-8b를 미세조정</dd></div>
+        <div><dt>방법</dt><dd>QLoRA</dd></div>
+        <div><dt>언어</dt><dd>한국어</dd></div>
+      </dl>
+
+      <h2>연구 배경</h2>
+      <p>범용 LLM은 프롬프트 인젝션이나 탈옥(jailbreak) 공격으로 안전 규칙을 우회당할 수 있습니다. 군 환경에서는 이것이 군사기밀 유출, 군기 위반, 적대적 사상 유포로 이어질 수 있습니다. LLM Guard, Llama Guard 같은 기존 가드레일은 일반적인 유해성을 기준으로 만들어져 군사 용어, 작전 언어, 군 조직의 규정을 반영하지 못합니다. 그래서 이런 언어로 쓴 위험한 요청이 정상 요청처럼 통과될 수 있습니다.</p>
+
+      <h2>접근 방법</h2>
+      <ul>
+        <li><strong>위험 범주.</strong> 군사기밀(공개되지 않은 군사 정보를 얻거나 추론하거나 유출하려는 요청), 군기(지휘 체계를 무너뜨리거나 규정 회피를 돕는 요청), 사상(일반적인 정치 토론이 아니라 군을 겨냥한 적대적 선전이나 임무 거부 선동)의 세 가지입니다.</li>
+        <li><strong>장병에게서 모은 키워드.</strong> 장병들에게서 후보 키워드를 모아 범주마다 100개를 골랐습니다. 실제 기밀이나 작전 정보는 수집하지 않았습니다.</li>
+        <li><strong>안전·위험 문장 쌍.</strong> 키워드마다 안전한 문장과 위험한 문장을 하나씩 만들어 기본 프롬프트 600개를 구성했습니다. 문장을 쌍으로 묶으면 모델이 키워드 자체에 반응하지 않고 요청의 목적을 판단하도록 배웁니다.</li>
+        <li><strong>한국어 우회 패턴.</strong> 군대 은어와 한글 자모 분리(예: 횡령을 ㅎㅚㅇㄹㅕㅇ으로 쓰기)를 안전한 문장과 위험한 문장 모두에 적용합니다.</li>
+        <li><strong>증강과 검토.</strong> LLM으로 만든 변형 문장으로 데이터셋을 늘리고 있으며, 현역 장병이 검토하고 있습니다.</li>
+        <li><strong>K-Guard.</strong> 한국어 안전 분류 모델인 kanana-safeguard-8b를 QLoRA로 미세조정해 프롬프트가 안전한지, 어느 위험 범주에 속하는지 예측하게 하고, 벤치마크에서 범용 가드레일과 비교합니다.</li>
+      </ul>
+
+      <h2>진행 상황</h2>
+      <p>논문을 쓰고 있습니다. 실험이 끝나면 결과를 추가하겠습니다.</p>
+      </div>
+      <div class="post-lang" lang="en" hidden>
       <h1>Building a Military Domain-Specific LLM Guardrail and Benchmark</h1>
       <p class="lede"><span class="status">In progress</span> ROK Marine Corps Headquarters and Hanyang University ERICA. Since Aug 2026.</p>
 
@@ -57,12 +85,13 @@
 
       <h2>Status</h2>
       <p>The paper is being written. Results will be added when the experiments are complete.</p>
+      </div>
       </article>
     </main>
 
     <footer class="site-foot">© <span id="year"></span> Wonseok Choi</footer>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
-    <script src="../data.js?v=20261124g"></script>
-    <script src="../app.js?v=20261124g"></script>
+    <script src="../data.js?v=20261124h"></script>
+    <script src="../app.js?v=20261124h"></script>
   </body>
 </html>

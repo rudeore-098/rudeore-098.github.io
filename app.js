@@ -130,24 +130,58 @@ function renderPost() {
     $('.post-type').innerHTML = `<a href="${root}blog/?category=${post.category}">${esc(catOf(post.category).name)}</a>${post.tags.map((t) => ` <span class="tag">#${esc(t)}</span>`).join('')}`;
   }
   const article = $('main article');
-  const heads = [...article.querySelectorAll('h2')];
-  if (heads.length < 2) return;
-  // tabindex -1 lets a TOC jump move keyboard focus to the section
-  heads.forEach((h, i) => { h.id ||= `s${i + 1}`; h.tabIndex = -1; });
   const toc = document.createElement('nav');
   toc.className = 'toc';
-  toc.setAttribute('aria-label', '목차');
-  toc.innerHTML = `<p>목차</p><ol>${heads.map((h) => `<li><a href="#${h.id}">${esc(h.textContent)}</a></li>`).join('')}</ol>`;
   article.after(toc);
-  // Mark the section currently near the top of the screen.
-  const links = toc.querySelectorAll('a');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((e) => {
-      if (!e.isIntersecting) return;
-      links.forEach((a) => a.toggleAttribute('aria-current', a.hash === '#' + e.target.id));
-    });
-  }, { rootMargin: '0px 0px -70% 0px' });
-  heads.forEach((h) => observer.observe(h));
+  let observer;
+
+  // Contents list for one language version (or the whole article); rebuilt when the language changes.
+  function buildToc(scope) {
+    observer?.disconnect();
+    const heads = [...scope.querySelectorAll('h2')];
+    toc.hidden = heads.length < 2;
+    if (toc.hidden) return;
+    const title = scope.lang === 'en' ? 'Contents' : '목차';
+    toc.setAttribute('aria-label', title);
+    // tabindex -1 lets a TOC jump move keyboard focus to the section
+    heads.forEach((h, i) => { h.id ||= `${scope.lang || 's'}-${i + 1}`; h.tabIndex = -1; });
+    toc.innerHTML = `<p>${title}</p><ol>${heads.map((h) => `<li><a href="#${h.id}">${esc(h.textContent)}</a></li>`).join('')}</ol>`;
+    // Mark the section currently near the top of the screen.
+    const links = toc.querySelectorAll('a');
+    observer = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        links.forEach((a) => a.toggleAttribute('aria-current', a.hash === '#' + e.target.id));
+      });
+    }, { rootMargin: '0px 0px -70% 0px' });
+    heads.forEach((h) => observer.observe(h));
+  }
+
+  // Posts with a Korean and an English version get a switch; Korean shows first.
+  const versions = [...article.querySelectorAll(':scope > .post-lang')];
+  if (versions.length < 2) return buildToc(article);
+  const names = { ko: '한국어', en: 'English' };
+  const sw = document.createElement('div');
+  sw.className = 'lang-switch';
+  sw.setAttribute('role', 'group');
+  sw.setAttribute('aria-label', '언어 선택');
+  sw.innerHTML = versions.map((v) => `<button type="button" lang="${v.lang}" data-lang="${v.lang}">${names[v.lang] || v.lang}</button>`).join('');
+  article.prepend(sw);
+  const show = (lang) => {
+    const current = versions.find((v) => v.lang === lang) || versions[0];
+    versions.forEach((v) => { v.hidden = v !== current; });
+    sw.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', b.dataset.lang === current.lang));
+    buildToc(current);
+  };
+  sw.addEventListener('click', (e) => {
+    const b = e.target.closest('button');
+    if (!b) return;
+    show(b.dataset.lang);
+    try { localStorage.setItem('post-lang', b.dataset.lang); } catch {}
+  });
+  let saved = 'ko';
+  try { saved = localStorage.getItem('post-lang') || 'ko'; } catch {}
+  show(saved);
 }
 
 ({ home: renderHome, item: renderItem, blog: renderBlog, timeline: renderTimeline, post: renderPost })[page]?.();
