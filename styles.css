@@ -133,6 +133,18 @@ h2 { font-size: 1.3125rem; line-height: 1.4; margin: 40px 0 8px; }
 .post-page article h3 { font-family: var(--sans); font-size: 0.95em; margin: 1.4em 0 0.2em; color: var(--ink); }
 .post-page article h3 + p { margin-top: 0; }
 .post-page .commits { font-family: var(--sans); font-size: 0.875rem; color: var(--ink-2); }
+/* Project posts: sans body, bigger section heads, 과제·구현·결과 in a label column, tech chips */
+.project-post article { font-family: var(--sans); font-size: 0.94em; line-height: 1.8; }
+.project-post article h1, .project-post article h2 { font-family: var(--serif); }
+.project-post article h2 { font-size: 1.45em; margin: 2.2em 0 0.5em; padding-top: 1em; border-top: 1px solid var(--line); }
+.project-post article code { font-size: 0.82em; background: var(--soft); border: 1px solid var(--line); border-radius: 4px; padding: 1px 6px; }
+.case { display: grid; grid-template-columns: 4.5rem minmax(0, 1fr); gap: 0 1.25rem; margin: 0; }
+.case dt { font-size: 0.8125rem; font-weight: 700; color: var(--accent); padding: 0.95em 0 0; border-top: 1px solid var(--line); }
+.case dd { margin: 0; padding: 0.75em 0; border-top: 1px solid var(--line); }
+.case dt:first-child, .case dt:first-child + dd { border-top: 0; }
+.case dd p { margin: 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 2px 0 0; padding: 0; list-style: none; }
+.chips li { font-size: 0.8125rem; background: var(--soft); border: 1px solid var(--line); border-radius: 999px; padding: 2px 10px; }
 /* 한국어 / English switch on bilingual posts */
 .lang-switch { display: flex; justify-content: center; gap: 6px; margin: 16px 0 0; font-family: var(--sans); }
 .lang-switch button { font: inherit; font-size: 0.875rem; color: var(--ink-2); background: none; border: 1px solid var(--line); border-radius: 999px; padding: 4px 14px; cursor: pointer; }
@@ -200,6 +212,8 @@ h2 { font-size: 1.3125rem; line-height: 1.4; margin: 40px 0 8px; }
   .item.has-thumb .item-date { grid-column: 2; }
   .item-date { padding-top: 0; }
   .field { grid-template-columns: 1fr; }
+  .case { grid-template-columns: 1fr; }
+  .case dd { border-top: 0; padding-top: 0.1em; }
   .tl-year li { grid-template-columns: 1fr; gap: 2px; }
 }
 

@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap" />
-    <link rel="stylesheet" href="../styles.css?v=20261124j" />
+    <link rel="stylesheet" href="../styles.css?v=20261124k" />
   </head>
   <body data-page="post" data-root="../">
     <a class="skip-link" href="#main">본문으로 건너뛰기</a>
@@ -28,7 +28,7 @@
       </div>
     </header>
 
-    <main id="main" class="wrap detail post-page">
+    <main id="main" class="wrap detail post-page project-post">
       <a class="back" href="../blog/">← 블로그 목록</a>
       <p class="post-type">프로젝트</p>
       <article lang="ko">
@@ -38,8 +38,8 @@
       <dl class="facts">
         <div><dt>기간</dt><dd>2024 – 2025년 2월</dd></div>
         <div><dt>역할</dt><dd>백엔드 개발, 배포 자동화</dd></div>
-        <div><dt>주요 기술</dt><dd>Java 17, Spring Boot, Spring Security, JPA, JWT, Redis</dd></div>
-        <div><dt>배포 도구</dt><dd>Docker, GitHub Actions, Docker Hub, EC2, Nginx</dd></div>
+        <div><dt>주요 기술</dt><dd><ul class="chips"><li>Java 17</li><li>Spring Boot</li><li>Spring Security</li><li>JPA</li><li>JWT</li><li>Redis</li></ul></dd></div>
+        <div><dt>배포 도구</dt><dd><ul class="chips"><li>Docker</li><li>GitHub Actions</li><li>Docker Hub</li><li>EC2</li><li>Nginx</li></ul></dd></div>
       </dl>
       <div class="links">
         <a class="badge" href="https://www.stackpot.co.kr/" target="_blank" rel="noopener noreferrer">서비스<span class="sr-only">(새 탭에서 열림)</span></a>
@@ -58,34 +58,37 @@
       </ul>
 
       <h2>임시 회원과 정식 회원을 구분하는 인증 구조</h2>
-      <h3>해결할 과제</h3>
-      <p>소셜 인증 이후 추가 정보를 입력하는 가입 흐름에서, 가입 중인 사용자와 가입을 마친 사용자를 구분해 처리해야 했습니다.</p>
-      <h3>구현</h3>
-      <p>TempUser 엔티티를 도입하고 토큰의 사용자 유형에 따라 인증 처리를 분기했습니다. TEMP 유형은 임시 회원 저장소에서 사용자를 조회하고 <code>ROLE_TEMP</code> 권한을 부여하도록 구성했습니다. 정식 회원의 사용자 조회·토큰 생성 관련 코드도 함께 수정했습니다.</p>
-      <h3>결과</h3>
-      <p>가입 진행 상태를 별도 데이터 모델과 인증 정보로 표현했습니다. 가입 중 사용자와 정식 회원을 구분하는 기준을 서버에서 다룰 수 있도록 변경했습니다.</p>
+      <dl class="case">
+        <dt>과제</dt><dd><p>소셜 인증 이후 추가 정보를 입력하는 가입 흐름에서, 가입 중인 사용자와 가입을 마친 사용자를 구분해 처리해야 했습니다.</p></dd>
+        <dt>구현</dt><dd><p>TempUser 엔티티를 도입하고 토큰의 사용자 유형에 따라 인증 처리를 분기했습니다. TEMP 유형은 임시 회원 저장소에서 사용자를 조회하고 <code>ROLE_TEMP</code> 권한을 부여하도록 구성했습니다. 정식 회원의 사용자 조회·토큰 생성 관련 코드도 함께 수정했습니다.</p></dd>
+        <dt>결과</dt><dd><p>가입 진행 상태를 별도 데이터 모델과 인증 정보로 표현했습니다. 가입 중 사용자와 정식 회원을 구분하는 기준을 서버에서 다룰 수 있도록 변경했습니다.</p>      <p class="commits">GitHub 커밋 기록: <a href="https://github.com/STACKPOT/STACKPOT-BE/commit/9c15062" target="_blank" rel="noopener noreferrer">[REFACTOR] TempUser 생성<span class="sr-only">(새 탭에서 열림)</span></a> · <a href="https://github.com/STACKPOT/STACKPOT-BE/commit/2ca2bcf" target="_blank" rel="noopener noreferrer">[REFACTOR] 토큰 생성 구조 변경 및 시큐리티 전면 수정<span class="sr-only">(새 탭에서 열림)</span></a></p></dd>
+      </dl>
+
       <h3>가입 중도 이탈 데이터 정리</h3>
       <p>가입이 완료되지 않은 임시 회원을 정리하기 위해 매 정시에 실행되는 스케줄러를 구현했습니다. 생성 시각이 한 시간 이전인 TempUser를 트랜잭션 안에서 삭제하도록 구성했습니다. 정확히 생성 60분 후 삭제하는 TTL 방식이 아니라 주기적으로 대상 데이터를 조회·삭제하는 방식입니다.</p>
+      <p class="commits">GitHub 커밋 기록: <a href="https://github.com/STACKPOT/STACKPOT-BE/commit/5142d5c" target="_blank" rel="noopener noreferrer">[FEAT] TempUser 중도이탈 시 db 삭제<span class="sr-only">(새 탭에서 열림)</span></a></p>
 
       <h2>서버 저장 상태를 확인하는 토큰 재발급</h2>
-      <h3>해결할 과제</h3>
-      <p>재발급 요청에서 토큰 자체의 유효성과 서버에 등록된 토큰인지를 함께 확인해야 했습니다.</p>
-      <h3>구현</h3>
-      <p>Refresh Token을 검증한 뒤 Redis 저장 여부를 검사하고 사용자 정보를 조회했습니다. 재발급 서비스에서는 기존 Refresh Token을 삭제하고 새 토큰 발급 메서드를 호출합니다.</p>
-      <h3>결과</h3>
-      <p>유효한 JWT인지 검사하는 흐름에 서버 저장 상태 확인을 연결했습니다. 로그아웃과 재발급에 필요한 토큰 관리 로직을 개발했습니다.</p>
+      <dl class="case">
+        <dt>과제</dt><dd><p>재발급 요청에서 토큰 자체의 유효성과 서버에 등록된 토큰인지를 함께 확인해야 했습니다.</p></dd>
+        <dt>구현</dt><dd><p>Refresh Token을 검증한 뒤 Redis 저장 여부를 검사하고 사용자 정보를 조회했습니다. 재발급 서비스에서는 기존 Refresh Token을 삭제하고 새 토큰 발급 메서드를 호출합니다.</p></dd>
+        <dt>결과</dt><dd><p>유효한 JWT인지 검사하는 흐름에 서버 저장 상태 확인을 연결했습니다. 로그아웃과 재발급에 필요한 토큰 관리 로직을 개발했습니다.</p></dd>
+      </dl>
+      <p class="commits">GitHub 커밋 기록: <a href="https://github.com/STACKPOT/STACKPOT-BE/commit/60f50bc" target="_blank" rel="noopener noreferrer">[FEAT] refreshtoken을 통한 재발급, redis사용<span class="sr-only">(새 탭에서 열림)</span></a> · <a href="https://github.com/STACKPOT/STACKPOT-BE/blob/main/src/main/java/stackpot/stackpot/user/service/TokenService.java" target="_blank" rel="noopener noreferrer">TokenService.java<span class="sr-only">(새 탭에서 열림)</span></a></p>
 
       <h2>활성 서버에 따라 배포 대상을 선택하는 자동화</h2>
-      <h3>해결할 과제</h3>
-      <p>Blue/Green 구성에서 현재 서비스 중인 서버를 확인하고, 반대편 컨테이너에 새 버전을 배포하는 절차가 필요했습니다.</p>
-      <h3>구현</h3>
-      <p>GitHub Actions에서 Nginx의 활성 포트를 읽어 배포 대상을 선택했습니다. Docker 이미지를 빌드하고 Docker Hub로 전달한 뒤, EC2에서 대상 컨테이너를 갱신하고 서버 전환 스크립트 <code>switch_backend.sh</code>를 호출하도록 구성했습니다. 배포 실행 기준을 main 브랜치로 변경하는 작업도 수행했습니다.</p>
-      <h3>결과</h3>
-      <p>활성 포트 확인, 배포 대상 선택, 이미지 전달과 컨테이너 갱신을 workflow로 연결했습니다. 무중단 여부와 롤백 동작은 운영 로그를 확보한 뒤 성과로 추가할 예정입니다.</p>
+      <dl class="case">
+        <dt>과제</dt><dd><p>Blue/Green 구성에서 현재 서비스 중인 서버를 확인하고, 반대편 컨테이너에 새 버전을 배포하는 절차가 필요했습니다.</p></dd>
+        <dt>구현</dt><dd><p>GitHub Actions에서 Nginx의 활성 포트를 읽어 배포 대상을 선택했습니다. Docker 이미지를 빌드하고 Docker Hub로 전달한 뒤, EC2에서 대상 컨테이너를 갱신하고 서버 전환 스크립트 <code>switch_backend.sh</code>를 호출하도록 구성했습니다. 배포 실행 기준을 main 브랜치로 변경하는 작업도 수행했습니다.</p></dd>
+        <dt>결과</dt><dd><p>활성 포트 확인, 배포 대상 선택, 이미지 전달과 컨테이너 갱신을 workflow로 연결했습니다. 무중단 여부와 롤백 동작은 운영 로그를 확보한 뒤 성과로 추가할 예정입니다.</p></dd>
+      </dl>
+      <p class="commits">GitHub 커밋 기록: <a href="https://github.com/STACKPOT/STACKPOT-BE/commit/733e02f" target="_blank" rel="noopener noreferrer">[CI/CD] 무중단 배포(Blue/Green) 구축 및 자동화 설정 + 환경변수 관리 방식 개선<span class="sr-only">(새 탭에서 열림)</span></a> · <a href="https://github.com/STACKPOT/STACKPOT-BE/commit/94fbdae" target="_blank" rel="noopener noreferrer">[REFACTOR] cicd 수정 및 gitignore 설정<span class="sr-only">(새 탭에서 열림)</span></a></p>
 
       <h2>서비스 API와 검증</h2>
       <p>피드 작성·조회·수정·삭제·좋아요와 Task 관리 API를 개발했습니다. 월·일 기준 일정 조회, 화면에 필요한 응답 필드, 잘못된 팟 정보 등에 대한 예외 처리를 보완했습니다.</p>
+      <p class="commits">GitHub 커밋 기록: <a href="https://github.com/STACKPOT/STACKPOT-BE/commit/551956e" target="_blank" rel="noopener noreferrer">[FEAT] my pot task 수정 / 삭제 / 자세히 보기 구현<span class="sr-only">(새 탭에서 열림)</span></a> · <a href="https://github.com/STACKPOT/STACKPOT-BE/commit/92c2aee" target="_blank" rel="noopener noreferrer">[FEAT] task 월,일에 해당하는 task 보기 api 구현<span class="sr-only">(새 탭에서 열림)</span></a></p>
       <p>사용자 서비스에는 기존 사용자·신규 사용자·닉네임 저장 시나리오의 테스트가 있으며, 헬스 체크 컨트롤러 테스트도 작성·수정했습니다.</p>
+      <p class="commits">GitHub 커밋 기록: <a href="https://github.com/STACKPOT/STACKPOT-BE/blob/main/src/test/java/stackpot/stackpot/user/service/UserCommandServiceImplTest.java" target="_blank" rel="noopener noreferrer">UserCommandServiceImplTest.java<span class="sr-only">(새 탭에서 열림)</span></a></p>
 
       <h2>개선 방향</h2>
       <ul>
@@ -98,7 +101,7 @@
 
     <footer class="site-foot">© <span id="year"></span> Wonseok Choi</footer>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
-    <script src="../data.js?v=20261124j"></script>
-    <script src="../app.js?v=20261124j"></script>
+    <script src="../data.js?v=20261124k"></script>
+    <script src="../app.js?v=20261124k"></script>
   </body>
 </html>

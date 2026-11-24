@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap" />
-    <link rel="stylesheet" href="../styles.css?v=20261124j" />
+    <link rel="stylesheet" href="../styles.css?v=20261124k" />
   </head>
   <body data-page="post" data-root="../">
     <a class="skip-link" href="#main">본문으로 건너뛰기</a>
@@ -28,7 +28,7 @@
       </div>
     </header>
 
-    <main id="main" class="wrap detail post-page">
+    <main id="main" class="wrap detail post-page project-post">
       <a class="back" href="../blog/">← 블로그 목록</a>
       <p class="post-type">프로젝트</p>
       <article lang="ko">
@@ -38,8 +38,8 @@
       <dl class="facts">
         <div><dt>작업 기간</dt><dd>2024년 11월 21일 – 12월 15일 (개인 커밋 기준)</dd></div>
         <div><dt>역할</dt><dd>Android 개발, Firebase 연동</dd></div>
-        <div><dt>주요 기술</dt><dd>Java, Fragment, XML, Navigation Component, RecyclerView</dd></div>
-        <div><dt>데이터·외부 연동</dt><dd>Firebase Authentication, Cloud Firestore, Naver Maps SDK</dd></div>
+        <div><dt>주요 기술</dt><dd><ul class="chips"><li>Java</li><li>Fragment</li><li>XML</li><li>Navigation Component</li><li>RecyclerView</li></ul></dd></div>
+        <div><dt>데이터·외부 연동</dt><dd><ul class="chips"><li>Firebase Authentication</li><li>Cloud Firestore</li><li>Naver Maps SDK</li></ul></dd></div>
       </dl>
       <div class="links">
         <a class="badge" href="https://github.com/MohaSSU-project/Android" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only">(새 탭에서 열림)</span></a>
@@ -58,33 +58,29 @@
       </ul>
 
       <h2>친구 관계의 양방향 저장과 예외 처리</h2>
-      <h3>기존 구조</h3>
-      <p>친구 추가 로직이 상대방의 위치 문서 조회와 연결되어 있었고, 관계 저장은 본인 친구 목록을 중심으로 처리했습니다.</p>
-      <h3>변경</h3>
-      <p>이메일로 대상 사용자를 찾은 뒤 자기 자신인지, 이미 친구로 등록했는지 확인하도록 수정했습니다. 내 친구 목록에는 상대 UID를, 상대 친구 목록에는 내 UID를 저장하고, 없는 사용자와 저장 실패 상황을 안내하도록 했습니다.</p>
-      <h3>결과</h3>
-      <p>양쪽 계정의 친구 관계를 생성하는 흐름과 자기 자신·중복 등록을 방지하는 분기를 추가했습니다.</p>
-      <h3>남은 과제</h3>
-      <p>두 관계 저장은 독립적인 비동기 호출입니다. 한쪽만 성공하는 상황에 대비한 일괄 쓰기와 오류 복구는 개선 대상으로 남아 있습니다.</p>
-      <p class="commits"><a href="https://github.com/MohaSSU-project/Android/commit/76a36c2" target="_blank" rel="noopener noreferrer">친구 관계 수정 전후<span class="sr-only">(새 탭에서 열림)</span></a></p>
+      <dl class="case">
+        <dt>기존 구조</dt><dd><p>친구 추가 로직이 상대방의 위치 문서 조회와 연결되어 있었고, 관계 저장은 본인 친구 목록을 중심으로 처리했습니다.</p></dd>
+        <dt>변경</dt><dd><p>이메일로 대상 사용자를 찾은 뒤 자기 자신인지, 이미 친구로 등록했는지 확인하도록 수정했습니다. 내 친구 목록에는 상대 UID를, 상대 친구 목록에는 내 UID를 저장하고, 없는 사용자와 저장 실패 상황을 안내하도록 했습니다.</p></dd>
+        <dt>결과</dt><dd><p>양쪽 계정의 친구 관계를 생성하는 흐름과 자기 자신·중복 등록을 방지하는 분기를 추가했습니다.</p></dd>
+        <dt>남은 과제</dt><dd><p>두 관계 저장은 독립적인 비동기 호출입니다. 한쪽만 성공하는 상황에 대비한 일괄 쓰기와 오류 복구는 개선 대상으로 남아 있습니다.</p></dd>
+      </dl>
+      <p class="commits">GitHub 커밋 기록: <a href="https://github.com/MohaSSU-project/Android/commit/76a36c2" target="_blank" rel="noopener noreferrer">친구 관계 수정 전후<span class="sr-only">(새 탭에서 열림)</span></a></p>
 
       <h2>시간표를 활용한 친구의 현재 수업 표시</h2>
-      <h3>해결할 과제</h3>
-      <p>친구 목록에서 프로필과 함께 현재 진행 중인 수업을 확인할 수 있어야 했습니다.</p>
-      <h3>구현</h3>
-      <p>친구 UID로 Firestore의 프로필과 시간표를 조회했습니다. 현재 요일·시·분을 수업 시작·종료 시각과 비교해 해당 수업을 찾고, 그 결과를 친구 객체에 포함해 RecyclerView에 표시했습니다. 친구 선택 시 프로필 바텀시트를 열고, 검색어 변화에 따라 목록을 필터링했습니다.</p>
-      <h3>결과</h3>
-      <p>프로필·시간표 조회 결과를 하나의 친구 목록 화면에 연결했습니다. 현재 수업은 화면에서 데이터를 조회한 시점을 기준으로 판별합니다.</p>
-      <p class="commits"><a href="https://github.com/MohaSSU-project/Android/commit/eb96c3c" target="_blank" rel="noopener noreferrer">현재 수업 표시<span class="sr-only">(새 탭에서 열림)</span></a> · <a href="https://github.com/MohaSSU-project/Android/commit/d6df7aa" target="_blank" rel="noopener noreferrer">친구 검색<span class="sr-only">(새 탭에서 열림)</span></a></p>
+      <dl class="case">
+        <dt>과제</dt><dd><p>친구 목록에서 프로필과 함께 현재 진행 중인 수업을 확인할 수 있어야 했습니다.</p></dd>
+        <dt>구현</dt><dd><p>친구 UID로 Firestore의 프로필과 시간표를 조회했습니다. 현재 요일·시·분을 수업 시작·종료 시각과 비교해 해당 수업을 찾고, 그 결과를 친구 객체에 포함해 RecyclerView에 표시했습니다. 친구 선택 시 프로필 바텀시트를 열고, 검색어 변화에 따라 목록을 필터링했습니다.</p></dd>
+        <dt>결과</dt><dd><p>프로필·시간표 조회 결과를 하나의 친구 목록 화면에 연결했습니다. 현재 수업은 화면에서 데이터를 조회한 시점을 기준으로 판별합니다.</p></dd>
+      </dl>
+      <p class="commits">GitHub 커밋 기록: <a href="https://github.com/MohaSSU-project/Android/commit/eb96c3c" target="_blank" rel="noopener noreferrer">현재 수업 표시<span class="sr-only">(새 탭에서 열림)</span></a> · <a href="https://github.com/MohaSSU-project/Android/commit/d6df7aa" target="_blank" rel="noopener noreferrer">친구 검색<span class="sr-only">(새 탭에서 열림)</span></a></p>
 
       <h2>회원가입·프로필·시간표의 Firebase 연동</h2>
-      <h3>해결할 과제</h3>
-      <p>인증된 계정과 앱에서 사용하는 프로필·시간표 데이터를 연결하고, 여러 화면에서 저장·조회할 수 있어야 했습니다.</p>
-      <h3>구현</h3>
-      <p>Firebase Authentication으로 사용자 인증과 이메일 인증을 처리하고, UID를 기준으로 Firestore 사용자 정보에 접근했습니다. Realtime Database에서 Firestore로 연동 코드를 변경하며 회원가입 화면·프로필 ViewModel을 수정했습니다. 마이페이지에는 시간표 저장·불러오기·수정 흐름을 연결했습니다.</p>
-      <h3>결과</h3>
-      <p>계정 인증과 앱 데이터를 연결하고, 사용자 정보와 시간표를 화면에서 저장·조회하는 기능을 구현했습니다.</p>
-      <p class="commits"><a href="https://github.com/MohaSSU-project/Android/commit/410fb93" target="_blank" rel="noopener noreferrer">Firestore 전환<span class="sr-only">(새 탭에서 열림)</span></a> · <a href="https://github.com/MohaSSU-project/Android/commit/670c287" target="_blank" rel="noopener noreferrer">이메일 인증 후 이동<span class="sr-only">(새 탭에서 열림)</span></a> · <a href="https://github.com/MohaSSU-project/Android/commit/586fff3" target="_blank" rel="noopener noreferrer">시간표 저장<span class="sr-only">(새 탭에서 열림)</span></a></p>
+      <dl class="case">
+        <dt>과제</dt><dd><p>인증된 계정과 앱에서 사용하는 프로필·시간표 데이터를 연결하고, 여러 화면에서 저장·조회할 수 있어야 했습니다.</p></dd>
+        <dt>구현</dt><dd><p>Firebase Authentication으로 사용자 인증과 이메일 인증을 처리하고, UID를 기준으로 Firestore 사용자 정보에 접근했습니다. Realtime Database에서 Firestore로 연동 코드를 변경하며 회원가입 화면·프로필 ViewModel을 수정했습니다. 마이페이지에는 시간표 저장·불러오기·수정 흐름을 연결했습니다.</p></dd>
+        <dt>결과</dt><dd><p>계정 인증과 앱 데이터를 연결하고, 사용자 정보와 시간표를 화면에서 저장·조회하는 기능을 구현했습니다.</p></dd>
+      </dl>
+      <p class="commits">GitHub 커밋 기록: <a href="https://github.com/MohaSSU-project/Android/commit/410fb93" target="_blank" rel="noopener noreferrer">Firestore 전환<span class="sr-only">(새 탭에서 열림)</span></a> · <a href="https://github.com/MohaSSU-project/Android/commit/670c287" target="_blank" rel="noopener noreferrer">이메일 인증 후 이동<span class="sr-only">(새 탭에서 열림)</span></a> · <a href="https://github.com/MohaSSU-project/Android/commit/586fff3" target="_blank" rel="noopener noreferrer">시간표 저장<span class="sr-only">(새 탭에서 열림)</span></a></p>
 
       <h2>화면 흐름과 수정 경험</h2>
       <ul>
@@ -93,7 +89,7 @@
         <li><strong>시간표 화면:</strong> 저장·DB 반영·조회 화면 이동 관련 코드 수정.</li>
       </ul>
       <p>시간표 저장 버튼에서 저장 함수를 호출한 뒤 화면 이동을 추가하고, 마이페이지 시간표 표시 관련 코드를 수정했습니다. 저장 완료 전 화면 전환과 저장 실패 처리는 후속 검증 항목입니다.</p>
-      <p class="commits"><a href="https://github.com/MohaSSU-project/Android/commit/3c853e4" target="_blank" rel="noopener noreferrer">저장 화면 이동 수정<span class="sr-only">(새 탭에서 열림)</span></a> · <a href="https://github.com/MohaSSU-project/Android/commit/471455c" target="_blank" rel="noopener noreferrer">시간표 표시 수정<span class="sr-only">(새 탭에서 열림)</span></a></p>
+      <p class="commits">GitHub 커밋 기록: <a href="https://github.com/MohaSSU-project/Android/commit/3c853e4" target="_blank" rel="noopener noreferrer">저장 화면 이동 수정<span class="sr-only">(새 탭에서 열림)</span></a> · <a href="https://github.com/MohaSSU-project/Android/commit/471455c" target="_blank" rel="noopener noreferrer">시간표 표시 수정<span class="sr-only">(새 탭에서 열림)</span></a></p>
 
       <h2>결과와 개선 방향</h2>
       <p>인증·프로필 입력, 시간표 저장·조회, 친구 추가·검색·현재 수업 표시를 화면과 연결했습니다. 후속 개선에서는 데이터 일관성과 비동기 처리의 실패 상황을 우선 다룰 수 있습니다.</p>
@@ -108,7 +104,7 @@
 
     <footer class="site-foot">© <span id="year"></span> Wonseok Choi</footer>
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
-    <script src="../data.js?v=20261124j"></script>
-    <script src="../app.js?v=20261124j"></script>
+    <script src="../data.js?v=20261124k"></script>
+    <script src="../app.js?v=20261124k"></script>
   </body>
 </html>
