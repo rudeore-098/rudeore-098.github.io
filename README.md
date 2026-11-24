@@ -15,7 +15,7 @@ GitHub Pages에 바로 올릴 수 있는 정적 사이트입니다(HTML·CSS·�
 | `item/index.html` | 항목 상세. 주소는 `item/?id=항목ID` |
 | `blog/index.html` | 블로그 목록과 카테고리 필터. 주소는 `blog/?category=카테고리ID` |
 | `timeline/index.html` | 연도별 아카이브: 날짜가 있는 항목을 시작 연도별로 묶어 보여줍니다 |
-| `pages/` | 블로그 글(기존 주소 유지): `k-guard.html`, `research-one.html` |
+| `pages/` | 블로그 글: `k-guard.html`, `research-one.html`(한국어·영어 전환), `seatcatcher.html`, `stackpot.html`, `mohassu.html`(노션 프로젝트 정리를 옮긴 글) |
 | `portfolio/index.html` | 예전 주소를 메인으로 넘겨 주는 페이지 |
 | `assets/`, `files/` | 썸네일·사진, 내려받는 PDF(`cv.pdf`는 아직 예시 파일) |
 | `mockups/` | 블로그 디자인 시안(사이트에 연결되지 않음) |

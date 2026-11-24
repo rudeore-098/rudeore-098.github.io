@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="text-scale" content="scale" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="가입 상태를 반영한 인증 구조와 서비스 API를 개발하고, 배포 과정을 자동화했습니다." />
+    <title>STACKPOT | 백엔드 개발·배포 자동화 · Wonseok Choi</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap" />
+    <link rel="stylesheet" href="../styles.css?v=20261124j" />
+  </head>
+  <body data-page="post" data-root="../">
+    <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
+    <header class="site-nav">
+      <div class="wrap">
+        <a class="logo" href="../">Wonseok Choi</a>
+        <nav aria-label="주 메뉴">
+          <a href="../">Home</a>
+          <a href="../blog/" aria-current="page">Blog</a>
+          <a href="../timeline/">Timeline</a>
+          <a class="nav-cv" href="../files/cv.pdf" download>CV</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="wrap detail post-page">
+      <a class="back" href="../blog/">← 블로그 목록</a>
+      <p class="post-type">프로젝트</p>
+      <article lang="ko">
+      <h1>STACKPOT | 백엔드 개발·배포 자동화</h1>
+      <p class="lede">가입 상태를 반영한 인증 구조와 서비스 API를 개발하고, 배포 과정을 자동화했습니다.</p>
+
+      <dl class="facts">
+        <div><dt>기간</dt><dd>2024 – 2025년 2월</dd></div>
+        <div><dt>역할</dt><dd>백엔드 개발, 배포 자동화</dd></div>
+        <div><dt>주요 기술</dt><dd>Java 17, Spring Boot, Spring Security, JPA, JWT, Redis</dd></div>
+        <div><dt>배포 도구</dt><dd>Docker, GitHub Actions, Docker Hub, EC2, Nginx</dd></div>
+      </dl>
+      <div class="links">
+        <a class="badge" href="https://www.stackpot.co.kr/" target="_blank" rel="noopener noreferrer">서비스<span class="sr-only">(새 탭에서 열림)</span></a>
+        <a class="badge" href="https://github.com/STACKPOT" target="_blank" rel="noopener noreferrer">GitHub<span class="sr-only">(새 탭에서 열림)</span></a>
+      </div>
+
+      <h2>프로젝트 소개</h2>
+      <p>STACKPOT은 팟 단위의 팀 활동, 피드, 작업·일정 관리 기능을 제공하는 서비스입니다. 백엔드에서 회원 인증과 가입 흐름, 피드·Task API를 담당하고 Docker·GitHub Actions 기반 배포 설정을 구현·개선했습니다.</p>
+
+      <h2>내가 담당한 부분</h2>
+      <ul>
+        <li><strong>인증·회원 관리:</strong> 카카오 소셜 로그인, JWT 발급·검증, Redis 기반 토큰 처리, 가입·로그아웃·탈퇴.</li>
+        <li><strong>가입 상태 분리:</strong> TempUser 도입, 사용자 유형별 인증 처리, 미완료 가입 데이터 정리.</li>
+        <li><strong>서비스 API:</strong> 피드 CRUD·좋아요, Task 생성·조회·수정·삭제, 월·일별 일정 조회.</li>
+        <li><strong>개발·배포 기반:</strong> 공통 응답·예외 처리, API 문서 보완, 사용자 서비스 테스트, Docker CI/CD 설정.</li>
+      </ul>
+
+      <h2>임시 회원과 정식 회원을 구분하는 인증 구조</h2>
+      <h3>해결할 과제</h3>
+      <p>소셜 인증 이후 추가 정보를 입력하는 가입 흐름에서, 가입 중인 사용자와 가입을 마친 사용자를 구분해 처리해야 했습니다.</p>
+      <h3>구현</h3>
+      <p>TempUser 엔티티를 도입하고 토큰의 사용자 유형에 따라 인증 처리를 분기했습니다. TEMP 유형은 임시 회원 저장소에서 사용자를 조회하고 <code>ROLE_TEMP</code> 권한을 부여하도록 구성했습니다. 정식 회원의 사용자 조회·토큰 생성 관련 코드도 함께 수정했습니다.</p>
+      <h3>결과</h3>
+      <p>가입 진행 상태를 별도 데이터 모델과 인증 정보로 표현했습니다. 가입 중 사용자와 정식 회원을 구분하는 기준을 서버에서 다룰 수 있도록 변경했습니다.</p>
+      <h3>가입 중도 이탈 데이터 정리</h3>
+      <p>가입이 완료되지 않은 임시 회원을 정리하기 위해 매 정시에 실행되는 스케줄러를 구현했습니다. 생성 시각이 한 시간 이전인 TempUser를 트랜잭션 안에서 삭제하도록 구성했습니다. 정확히 생성 60분 후 삭제하는 TTL 방식이 아니라 주기적으로 대상 데이터를 조회·삭제하는 방식입니다.</p>
+
+      <h2>서버 저장 상태를 확인하는 토큰 재발급</h2>
+      <h3>해결할 과제</h3>
+      <p>재발급 요청에서 토큰 자체의 유효성과 서버에 등록된 토큰인지를 함께 확인해야 했습니다.</p>
+      <h3>구현</h3>
+      <p>Refresh Token을 검증한 뒤 Redis 저장 여부를 검사하고 사용자 정보를 조회했습니다. 재발급 서비스에서는 기존 Refresh Token을 삭제하고 새 토큰 발급 메서드를 호출합니다.</p>
+      <h3>결과</h3>
+      <p>유효한 JWT인지 검사하는 흐름에 서버 저장 상태 확인을 연결했습니다. 로그아웃과 재발급에 필요한 토큰 관리 로직을 개발했습니다.</p>
+
+      <h2>활성 서버에 따라 배포 대상을 선택하는 자동화</h2>
+      <h3>해결할 과제</h3>
+      <p>Blue/Green 구성에서 현재 서비스 중인 서버를 확인하고, 반대편 컨테이너에 새 버전을 배포하는 절차가 필요했습니다.</p>
+      <h3>구현</h3>
+      <p>GitHub Actions에서 Nginx의 활성 포트를 읽어 배포 대상을 선택했습니다. Docker 이미지를 빌드하고 Docker Hub로 전달한 뒤, EC2에서 대상 컨테이너를 갱신하고 서버 전환 스크립트 <code>switch_backend.sh</code>를 호출하도록 구성했습니다. 배포 실행 기준을 main 브랜치로 변경하는 작업도 수행했습니다.</p>
+      <h3>결과</h3>
+      <p>활성 포트 확인, 배포 대상 선택, 이미지 전달과 컨테이너 갱신을 workflow로 연결했습니다. 무중단 여부와 롤백 동작은 운영 로그를 확보한 뒤 성과로 추가할 예정입니다.</p>
+
+      <h2>서비스 API와 검증</h2>
+      <p>피드 작성·조회·수정·삭제·좋아요와 Task 관리 API를 개발했습니다. 월·일 기준 일정 조회, 화면에 필요한 응답 필드, 잘못된 팟 정보 등에 대한 예외 처리를 보완했습니다.</p>
+      <p>사용자 서비스에는 기존 사용자·신규 사용자·닉네임 저장 시나리오의 테스트가 있으며, 헬스 체크 컨트롤러 테스트도 작성·수정했습니다.</p>
+
+      <h2>개선 방향</h2>
+      <ul>
+        <li><strong>회원 상태 검증:</strong> 가입 완료 시 임시 토큰 처리와 임시 회원 접근 범위를 통합 테스트로 확인.</li>
+        <li><strong>재발급 동시성:</strong> 동일 Refresh Token으로 동시에 요청했을 때의 처리 정책과 원자성 검토.</li>
+        <li><strong>배포 검증:</strong> 테스트 통과 조건, 헬스 체크, 전환 실패 시 롤백 절차를 명시하고 실행 기록 확보.</li>
+      </ul>
+      </article>
+    </main>
+
+    <footer class="site-foot">© <span id="year"></span> Wonseok Choi</footer>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="../data.js?v=20261124j"></script>
+    <script src="../app.js?v=20261124j"></script>
+  </body>
+</html>

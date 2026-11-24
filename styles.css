@@ -130,6 +130,9 @@ h2 { font-size: 1.3125rem; line-height: 1.4; margin: 40px 0 8px; }
 .post-page > * { grid-column: text; }
 .post-page article { line-height: 1.95; }
 .post-page article p, .post-page article li { text-wrap: pretty; }
+.post-page article h3 { font-family: var(--sans); font-size: 0.95em; margin: 1.4em 0 0.2em; color: var(--ink); }
+.post-page article h3 + p { margin-top: 0; }
+.post-page .commits { font-family: var(--sans); font-size: 0.875rem; color: var(--ink-2); }
 /* 한국어 / English switch on bilingual posts */
 .lang-switch { display: flex; justify-content: center; gap: 6px; margin: 16px 0 0; font-family: var(--sans); }
 .lang-switch button { font: inherit; font-size: 0.875rem; color: var(--ink-2); background: none; border: 1px solid var(--line); border-radius: 999px; padding: 4px 14px; cursor: pointer; }

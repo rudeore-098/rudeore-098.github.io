@@ -23,7 +23,7 @@ window.SITE = {
     ],
   },
 
-  categories: [{ id: 'ai-research', name: 'AI·연구' }],
+  categories: [{ id: 'ai-research', name: 'AI·연구' }, { id: 'project', name: '프로젝트' }],
 
   posts: [
     {
@@ -39,6 +39,27 @@ window.SITE = {
       category: 'ai-research',
       tags: ['SLM', 'PEFT', 'QLoRA'],
       summary: 'Seon Hong Lee, Wonseok Choi, Woojoon Lee, Yuchan Kim. Korea Institute of Military Science and Technology (KIMST) Annual Conference, 2026.',
+    },
+    {
+      url: 'pages/seatcatcher.html', lang: 'ko',
+      title: 'SeatCatcher | 백엔드 개발',
+      category: 'project',
+      tags: ['Spring Boot', 'JPA', 'FCM'],
+      summary: '이용 경로 이력과 신고 API, FCM 푸시·알림함을 개발하고 사용자별 접근 제한과 서비스 테스트를 구현했습니다.',
+    },
+    {
+      url: 'pages/stackpot.html', lang: 'ko',
+      title: 'STACKPOT | 백엔드 개발·배포 자동화',
+      category: 'project',
+      tags: ['Spring Boot', 'JWT', 'Redis', 'GitHub Actions'],
+      summary: '가입 상태를 반영한 인증 구조와 서비스 API를 개발하고, 배포 과정을 자동화했습니다.',
+    },
+    {
+      url: 'pages/mohassu.html', lang: 'ko',
+      title: 'MohaSSU | Android·Firebase 개발',
+      category: 'project',
+      tags: ['Android', 'Firebase'],
+      summary: 'Firebase 인증과 사용자 데이터를 Android 화면에 연결하고, 친구 관계·시간표·현재 수업 확인 기능을 개발했습니다.',
     },
   ],
 
@@ -84,6 +105,7 @@ window.SITE = {
         contributions: ['Report and route-history APIs.', 'FCM push notifications and in-app inbox.', 'Per-user access control and service tests.'],
         links: [{ label: 'Notion', url: 'https://rudeor0928.notion.site/SeatCatcher-3f5f535510f781be9b8efd3d3f18e90b?source=copy_link' }],
       },
+      posts: ['pages/seatcatcher.html'],
     },
     {
       id: 'stackpot', type: 'project', title: 'STACKPOT', thumb: 'assets/projects/stackpot-thumb.png',
@@ -95,6 +117,7 @@ window.SITE = {
         contributions: ['Kakao login with JWT and Redis.', 'Sign-up flow for temporary users.', 'Feed and task APIs.', 'Blue/Green deployment with GitHub Actions.'],
         links: [{ label: 'Notion', url: 'https://rudeor0928.notion.site/STACKPOT-3f5f535510f781cc9f51e587cd4b8b2f?source=copy_link' }],
       },
+      posts: ['pages/stackpot.html'],
     },
     {
       id: 'mohassu', type: 'project', title: 'MohaSSU', thumb: 'assets/projects/mohassu-thumb.png',
@@ -105,6 +128,7 @@ window.SITE = {
         contributions: ['Firebase Authentication and Firestore integration.', 'Two-way friend relationships.', 'A live current-class indicator built from timetables.'],
         links: [{ label: 'Notion', url: 'https://rudeor0928.notion.site/MohaSSU-Android-Firebase-3f5f535510f7812a9a82ca604d71166d?source=copy_link' }],
       },
+      posts: ['pages/mohassu.html'],
     },
 
     {

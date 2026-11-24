@@ -19,6 +19,14 @@ function month(s) {
 }
 const dated = S.items.filter((it) => it.start).sort((a, b) => month(b.start).i - month(a.start).i);
 
+// One post row: title, summary, category and tags (blog list and 관련 포스트)
+const postRow = (p) => `
+    <li>
+      <a class="title" href="${root}${p.url}" lang="${p.lang || 'en'}">${esc(p.title)}</a>
+      <p class="summary" lang="${p.lang || 'en'}">${esc(p.summary)}</p>
+      <p class="post-meta"><span class="cat">${esc(catOf(p.category).name)}</span>${p.tags.map((t) => `<span class="tag">#${esc(t)}</span>`).join('')}</p>
+    </li>`;
+
 function titleHtml(it) {
   return it.detail ? `<a href="${itemUrl(it)}">${esc(it.title)}</a>` : esc(it.title);
 }
@@ -93,7 +101,7 @@ function renderItem() {
     <h1 lang="en">${esc(it.title)}</h1>
     <dl class="fields">${rows}</dl>
     ${related.length ? `<section class="related" aria-labelledby="related-title"><h2 id="related-title">관련 포스트</h2>
-      <ul class="post-list">${related.map((p) => `<li lang="en"><a class="title" href="${root}${p.url}">${esc(p.title)}</a></li>`).join('')}</ul></section>` : ''}`;
+      <ul class="post-list">${related.map(postRow).join('')}</ul></section>` : ''}`;
 }
 
 /* ---------- Blog list with category filter ---------- */
@@ -103,12 +111,7 @@ function renderBlog() {
   const chip = (id, name) => `<li><a href="${id === 'all' ? './' : `?category=${id}`}"${id === current ? ' aria-current="true"' : ''}>${esc(name)}<span class="count">${count(id)}</span></a></li>`;
   $('#filters').innerHTML = chip('all', '전체') + S.categories.map((c) => chip(c.id, c.name)).join('');
   const posts = S.posts.filter((p) => current === 'all' || p.category === current);
-  $('#posts').innerHTML = posts.length ? posts.map((p) => `
-    <li>
-      <a class="title" href="${root}${p.url}" lang="en">${esc(p.title)}</a>
-      <p class="summary" lang="en">${esc(p.summary)}</p>
-      <p class="post-meta"><span class="cat">${esc(catOf(p.category).name)}</span>${p.tags.map((t) => `<span class="tag">#${esc(t)}</span>`).join('')}</p>
-    </li>`).join('') : '<li class="empty">이 카테고리에는 아직 글이 없습니다. <a href="./">전체 글 보기</a></li>';
+  $('#posts').innerHTML = posts.length ? posts.map(postRow).join('') : '<li class="empty">이 카테고리에는 아직 글이 없습니다. <a href="./">전체 글 보기</a></li>';
 }
 
 /* ---------- Timeline: dated items grouped by start year ---------- */
