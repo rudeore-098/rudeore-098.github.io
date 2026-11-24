@@ -1,0 +1,136 @@
+// Single source for the résumé (main), item detail pages, timeline and blog list.
+// Only content that already existed on the site lives here: do not add new facts.
+// Paths are relative to the site root. Items link posts by post URL, so post titles can change freely.
+// Dates: start/end are 'YYYY-MM' or 'YYYY' (year only, month unknown); end: null means present.
+window.SITE = {
+  profile: {
+    name: 'Wonseok Choi',
+    role: 'Computer Science Engineer & Researcher',
+    summary: 'I aim to be a developer who doesn’t fear change and backs every choice with evidence.',
+    email: 'rudeore0928@gmail.com',
+    links: [
+      { label: 'GitHub', text: 'rudeore-098', url: 'https://github.com/rudeore-098' },
+      { label: 'Velog', text: 'velog.io/@rude_ore098', url: 'https://velog.io/@rude_ore098/posts' },
+    ],
+    cv: 'files/cv.pdf',
+    location: 'Seoul, Korea',
+    skills: ['PyTorch', 'Python', 'Spring Boot', 'C', 'C++'],
+    education: [{ title: 'Soongsil University', meta: 'Computer Science and Engineering', period: '2023 – Present' }],
+    certifications: [
+      { title: 'SQL Developer (SQLD)', meta: 'Korea Data Agency', period: 'Jun 2026' },
+      { title: 'Advanced Data Analytics Semi-Professional (ADsP)', meta: 'Korea Data Agency', period: 'Jun 2026' },
+      { title: 'Craftsman Information Processing', meta: 'HRD Korea' },
+    ],
+  },
+
+  categories: [{ id: 'ai-research', name: 'AI·연구' }],
+
+  posts: [
+    {
+      url: 'pages/k-guard.html',
+      title: 'Building a Military Domain-Specific LLM Guardrail and Benchmark',
+      category: 'ai-research',
+      tags: ['LLM 가드레일', '벤치마크', 'QLoRA'],
+      summary: 'A Korean military-domain safety benchmark (military secrets, military discipline, ideology) and K-Guard, a guard model fine-tuned from kanana-safeguard-8b with QLoRA.',
+    },
+    {
+      url: 'pages/research-one.html',
+      title: 'Small Language Model-Based Risk Classification of Coastal Surveillance Events',
+      category: 'ai-research',
+      tags: ['SLM', 'PEFT', 'QLoRA'],
+      summary: 'Seon Hong Lee, Wonseok Choi, Woojoon Lee, Yuchan Kim. Korea Institute of Military Science and Technology (KIMST) Annual Conference, 2026.',
+    },
+  ],
+
+  // Section order on the main page, and labels used everywhere.
+  types: [
+    { id: 'activity', name: '활동' , section: '경력·활동' },
+    { id: 'project', name: '프로젝트', section: '프로젝트' },
+    { id: 'award', name: '수상', section: '수상' },
+    { id: 'research', name: '연구', section: '연구' },
+  ],
+
+  items: [
+    {
+      id: 'aitf', type: 'activity', title: 'AI Developer', org: 'AITF, ROK Marine Corps Headquarters',
+      period: 'Feb 2026 – Nov 2026', start: '2026-02', end: '2026-11',
+      summary: 'Built AI agents, enhanced the RAG system and set up servers.',
+      detail: {
+        role: 'AI Developer',
+        contributions: ['Built AI agents.', 'Enhanced the RAG (retrieval-augmented generation) system.', 'Set up servers.'],
+      },
+    },
+    {
+      id: 'umc', type: 'activity', title: 'UMC 7th', org: 'Spring Boot',
+      period: 'Sep 2024 – Feb 2025', start: '2024-09', end: '2025-02',
+      summary: 'Completed Spring Boot training and participated in team projects.',
+      detail: {
+        contributions: ['Completed Spring Boot training.', 'Participated in team projects.'],
+      },
+    },
+    {
+      id: 'comet', type: 'activity', title: 'President', org: 'COM:et, 28th Student Council',
+      period: 'Nov 2023 – Dec 2024', start: '2023-11', end: '2024-12',
+      summary: 'School of Computer Science and Engineering, Soongsil University',
+    },
+
+    {
+      id: 'seatcatcher', type: 'project', title: 'SeatCatcher', thumb: 'assets/projects/seatcatcher-thumb.png',
+      period: 'May – Aug 2025', start: '2025-05', end: '2025-08', stack: 'Spring Boot, JPA, FCM',
+      summary: 'Backend for a subway seat-sharing app.',
+      detail: {
+        overview: 'Backend for a subway seat-sharing app.',
+        role: 'Backend',
+        contributions: ['Report and route-history APIs.', 'FCM push notifications and in-app inbox.', 'Per-user access control and service tests.'],
+        links: [{ label: 'Notion', url: 'https://rudeor0928.notion.site/SeatCatcher-3f5f535510f781be9b8efd3d3f18e90b?source=copy_link' }],
+      },
+    },
+    {
+      id: 'stackpot', type: 'project', title: 'STACKPOT', thumb: 'assets/projects/stackpot-thumb.png',
+      period: '2024 – Feb 2025', start: '2024', end: '2025-02', stack: 'Spring Boot, JWT, Redis, Docker',
+      summary: 'Backend for a team-activity service.',
+      detail: {
+        overview: 'Backend for a team-activity service.',
+        role: 'Backend',
+        contributions: ['Kakao login with JWT and Redis.', 'Sign-up flow for temporary users.', 'Feed and task APIs.', 'Blue/Green deployment with GitHub Actions.'],
+        links: [{ label: 'Notion', url: 'https://rudeor0928.notion.site/STACKPOT-3f5f535510f781cc9f51e587cd4b8b2f?source=copy_link' }],
+      },
+    },
+    {
+      id: 'mohassu', type: 'project', title: 'MohaSSU', thumb: 'assets/projects/mohassu-thumb.png',
+      period: 'Nov – Dec 2024', start: '2024-11', end: '2024-12', stack: 'Android, Java, Firebase',
+      summary: 'Android app for checking friends’ profiles and timetables.',
+      detail: {
+        overview: 'Android app for checking friends’ profiles and timetables.',
+        contributions: ['Firebase Authentication and Firestore integration.', 'Two-way friend relationships.', 'A live current-class indicator built from timetables.'],
+        links: [{ label: 'Notion', url: 'https://rudeor0928.notion.site/MohaSSU-Android-Firebase-3f5f535510f7812a9a82ca604d71166d?source=copy_link' }],
+      },
+    },
+
+    {
+      id: 'k-guard', type: 'research', title: 'Building a Military Domain-Specific LLM Guardrail and Benchmark',
+      status: 'In progress', org: 'ROK Marine Corps Headquarters and Hanyang University ERICA',
+      period: 'Aug 2026 – Present', start: '2026-08', end: null,
+      summary: 'A Korean military-domain safety benchmark (military secrets, military discipline, ideology) and K-Guard, a guard model fine-tuned from kanana-safeguard-8b with QLoRA.',
+      detail: {
+        overview: 'A Korean military-domain safety benchmark (military secrets, military discipline, ideology) and K-Guard, a guard model fine-tuned from kanana-safeguard-8b with QLoRA.',
+        method: 'K-Guard, fine-tuned from kanana-safeguard-8b with QLoRA.',
+      },
+      posts: ['pages/k-guard.html'],
+    },
+    {
+      id: 'slm-coastal', type: 'research', title: 'Small Language Model-Based Risk Classification of Coastal Surveillance Events',
+      period: '2026', start: '2026',
+      summary: 'An SLM-based model for classifying coastal surveillance events and generating brief situation reports.',
+      detail: {
+        overview: 'This study proposes an SLM-based model for classifying coastal surveillance events and generating brief situation reports.',
+        authors: 'Seon Hong Lee, Wonseok Choi, Woojoon Lee, Yuchan Kim',
+        venue: 'Korea Institute of Military Science and Technology (KIMST) Annual Conference, 2026',
+        method: 'QLoRA fine-tuning of kanana-1.5-2.1b-instruct-2505 on 926 generalized event samples.',
+        result: 'The QLoRA model reached a macro F1 of 0.9461 on the test set, against 0.6007 for the baseline.',
+        links: [{ label: 'Paper (PDF)', url: 'files/slm-coastal-surveillance-risk-classification.pdf', download: true }],
+      },
+      posts: ['pages/research-one.html'],
+    },
+  ],
+};

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="Wonseok Choi 이력 타임라인." />
+    <title>타임라인 · Wonseok Choi</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&display=swap" />
+    <link rel="stylesheet" href="../styles.css?v=20261124d" />
+  </head>
+  <body data-page="timeline" data-root="../">
+    <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
+    <header class="site-nav">
+      <div class="wrap">
+        <a class="logo" href="../">Wonseok Choi</a>
+        <nav aria-label="주 메뉴">
+          <a href="../">Home</a>
+          <a href="../blog/">Blog</a>
+          <a href="../timeline/" aria-current="page">Timeline</a>
+          <a class="nav-cv" href="../files/cv.pdf" download>CV</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" class="wrap timeline">
+      <h1 class="page-title">타임라인</h1>
+      <div id="timeline"></div>
+    </main>
+
+    <footer class="site-foot">© <span id="year"></span> Wonseok Choi</footer>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <noscript><p class="noscript">이 화면은 JavaScript로 내용을 그립니다. 브라우저에서 JavaScript를 켜 주세요.</p></noscript>
+    <script src="../data.js?v=20261124d"></script>
+    <script src="../app.js?v=20261124d"></script>
+  </body>
+</html>
