@@ -130,9 +130,9 @@ h2 { font-size: 1.3125rem; line-height: 1.4; margin: 40px 0 8px; }
 .post-page > * { grid-column: text; }
 .post-page article { line-height: 1.95; }
 .post-page article p, .post-page article li { text-wrap: pretty; }
-.post-page article h3 { font-family: var(--sans); font-size: 0.95em; margin: 1.4em 0 0.2em; color: var(--ink); }
-.post-page article h3 + p { margin-top: 0; }
-.post-page .commits { font-family: var(--sans); font-size: 0.875rem; color: var(--ink-2); }
+.post-page article h3, .project-post article h3 { font-family: var(--sans); font-size: 0.95em; margin: 1.4em 0 0.2em; color: var(--ink); }
+.post-page article h3 + p, .project-post article h3 + p { margin-top: 0; }
+.post-page .commits, .project-post .commits { font-family: var(--sans); font-size: 0.875rem; color: var(--ink-2); }
 /* Project posts: sans body, bigger section heads, 과제·구현·결과 in a label column, tech chips */
 .project-post article { font-family: var(--sans); font-size: 0.94em; line-height: 1.8; }
 .project-post article h1, .project-post article h2 { font-family: var(--serif); }
