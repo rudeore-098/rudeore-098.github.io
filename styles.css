@@ -166,6 +166,19 @@ h2 { font-size: 1.3125rem; line-height: 1.4; margin: 40px 0 8px; }
 .badge:hover { background: var(--accent); color: #fff; }
 .detail figure { margin: 16px 0 0; }
 .detail img { display: block; width: 100%; height: auto; border-radius: 4px; }
+.bench .venue { font-family: var(--sans); font-size: 0.875rem; color: var(--ink-2); margin: 0; text-align: center; }
+.bench .tldr { font-family: var(--sans); font-size: 1.0625rem; line-height: 1.6; border-left: 3px solid var(--accent); padding: 4px 0 4px 14px; margin-top: 20px; }
+.bench > .links { justify-content: center; }
+.bench .tbu { color: var(--ink-2); }
+.detail .bench tbody tr:last-child td { font-weight: 400; }
+.detail .bench tbody tr.total:last-child td { font-weight: 700; }
+.pipeline { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 8px; counter-reset: step; font-family: var(--sans); }
+.pipeline li { border: 1px solid var(--line); border-radius: 6px; padding: 12px; font-size: 0.875rem; line-height: 1.45; counter-increment: step; }
+.pipeline li::before { content: counter(step); display: block; font-weight: 700; color: var(--accent); margin-bottom: 4px; }
+.pipeline strong { display: block; font-size: 0.9375rem; margin-bottom: 2px; }
+.pipeline li:last-child { background: var(--soft); border-color: var(--accent); }
+@media (min-width: 48rem) { .pipeline { grid-template-columns: repeat(5, 1fr); } }
+.bench .evasion code { font-size: 1.125rem; }
 .detail figure.portrait { max-width: 28rem; margin-inline: auto; }
 .detail .figure-pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 8px; align-items: start; }
 .detail figcaption { font-family: var(--sans); font-size: 0.875rem; color: var(--ink-2); margin-top: 8px; line-height: 1.5; }

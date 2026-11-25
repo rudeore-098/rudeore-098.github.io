@@ -168,6 +168,7 @@ window.SITE = {
       detail: {
         overview: 'A Korean military-domain safety benchmark (military secrets, military discipline, ideology) and K-Guard, a guard model fine-tuned from kanana-safeguard-8b with QLoRA.',
         method: 'K-Guard, fine-tuned from kanana-safeguard-8b with QLoRA.',
+        body: 'items/k-guard.html',
       },
       posts: ['pages/k-guard.html'],
     },
@@ -182,6 +183,7 @@ window.SITE = {
         method: 'QLoRA fine-tuning of kanana-1.5-2.1b-instruct-2505 on 926 generalized event samples.',
         result: 'The QLoRA model reached a macro F1 of 0.9461 on the test set, against 0.6007 for the baseline.',
         links: [{ label: 'Paper (PDF)', url: 'files/slm-coastal-surveillance-risk-classification.pdf', download: true }],
+        body: 'items/slm-coastal.html',
       },
       posts: ['pages/research-one.html'],
     },

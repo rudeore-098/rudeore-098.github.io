@@ -1,0 +1,75 @@
+<p class="venue"><span class="status">진행 중</span> 해병대사령부 · 한양대학교 ERICA · 2026년 8월부터</p>
+<h1>군사 도메인 특화 LLM 가드레일 및 벤치마크 구축</h1>
+<p class="lede">저자 <span class="tbu">To be updated.</span></p>
+
+<p class="tldr">군사기밀, 군기, 사상 세 범주로 된 한국어 군사 도메인 안전 벤치마크를 만들고, kanana-safeguard-8b를 QLoRA로 미세조정한 가드 모델 K-Guard를 범용 가드레일과 비교합니다.</p>
+
+<h2>왜 필요한가</h2>
+<p>LLM Guard, Llama Guard 같은 기존 가드레일은 일반적인 유해성을 기준으로 만들어져 군사 용어, 작전 언어, 군 조직의 규정을 반영하지 못합니다. 그래서 이런 언어로 쓴 위험한 요청이 정상 요청처럼 통과될 수 있습니다.</p>
+
+<h2>벤치마크 구축 과정</h2>
+<ol class="pipeline">
+  <li><strong>키워드 수집</strong>장병에게서 후보를 모아 범주마다 100개 선정</li>
+  <li><strong>문장 쌍 작성</strong>키워드마다 안전·위험 문장 1개씩, 기본 프롬프트 600개</li>
+  <li><strong>우회 패턴 적용</strong>군대 은어, 한글 자모 분리</li>
+  <li><strong>증강과 검토</strong>LLM 변형 문장으로 확장, 현역 장병 검토</li>
+  <li><strong>K-Guard 학습</strong>kanana-safeguard-8b를 QLoRA로 미세조정</li>
+</ol>
+
+<h2>위험 범주</h2>
+<div class="table-wrap" tabindex="0" role="region" aria-labelledby="cat-cap">
+  <table>
+    <caption id="cat-cap">K-Guard 벤치마크의 세 가지 위험 범주</caption>
+    <thead><tr><th scope="col">범주</th><th scope="col">무엇을 막는가</th><th scope="col">키워드</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">군사기밀</th><td>공개되지 않은 군사 정보를 얻거나 추론하거나 유출하려는 요청</td><td>100</td></tr>
+      <tr><th scope="row">군기</th><td>지휘 체계를 무너뜨리거나 규정 회피를 돕는 요청</td><td>100</td></tr>
+      <tr><th scope="row">사상</th><td>일반적인 정치 토론이 아니라 군을 겨냥한 적대적 선전이나 임무 거부 선동</td><td>100</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>데이터 구성</h2>
+<div class="table-wrap" tabindex="0" role="region" aria-labelledby="data-cap">
+  <table>
+    <caption id="data-cap">범주별 기본 프롬프트 수 (증강 전)</caption>
+    <thead><tr><th scope="col">범주</th><th scope="col">안전</th><th scope="col">위험</th><th scope="col">합계</th><th scope="col">증강 후</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">군사기밀</th><td>100</td><td>100</td><td>200</td><td class="tbu">To be updated.</td></tr>
+      <tr><th scope="row">군기</th><td>100</td><td>100</td><td>200</td><td class="tbu">To be updated.</td></tr>
+      <tr><th scope="row">사상</th><td>100</td><td>100</td><td>200</td><td class="tbu">To be updated.</td></tr>
+      <tr class="total"><th scope="row">합계</th><td>300</td><td>300</td><td>600</td><td class="tbu">To be updated.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>데이터 예시</h2>
+<p>같은 키워드로 안전한 문장과 위험한 문장을 쌍으로 만들어, 모델이 키워드가 아니라 요청의 목적을 보고 판단하게 합니다.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-labelledby="ex-cap">
+  <table>
+    <caption id="ex-cap">안전·위험 문장 쌍 예시 (일반화한 문장)</caption>
+    <thead><tr><th scope="col">범주</th><th scope="col">키워드</th><th scope="col">안전한 문장</th><th scope="col">위험한 문장</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">군사기밀</th><td class="tbu" colspan="3">To be updated.</td></tr>
+      <tr><th scope="row">군기</th><td class="tbu" colspan="3">To be updated.</td></tr>
+      <tr><th scope="row">사상</th><td class="tbu" colspan="3">To be updated.</td></tr>
+    </tbody>
+  </table>
+</div>
+<p class="evasion">한글 자모 분리 예: <code>횡령</code> → <code>ㅎㅚㅇㄹㅕㅇ</code></p>
+
+<h2>결과</h2>
+<div class="table-wrap" tabindex="0" role="region" aria-labelledby="res-cap">
+  <table>
+    <caption id="res-cap">K-Guard 벤치마크 테스트 세트 성능</caption>
+    <thead><tr><th scope="col">모델</th><th scope="col">F1</th><th scope="col">Precision</th><th scope="col">Recall</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">kanana-safeguard-8b (기반)</th><td class="tbu" colspan="3">To be updated.</td></tr>
+      <tr><th scope="row">범용 가드레일</th><td class="tbu" colspan="3">To be updated.</td></tr>
+      <tr class="total"><th scope="row">K-Guard</th><td class="tbu" colspan="3">To be updated.</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>인용</h2>
+<p class="tbu">To be updated.</p>

@@ -1,0 +1,56 @@
+<p class="venue">2026 한국군사과학기술학회(KIMST) 종합학술대회</p>
+<h1>SLM 기반 해안 경계 이벤트 위험도 분류</h1>
+<p class="lede">이선홍, <strong>최원석</strong>, 이우준, 김유찬</p>
+
+<div class="links">
+  <a class="badge" href="../files/slm-coastal-surveillance-risk-classification.pdf" download>Paper (PDF)</a>
+</div>
+
+<p class="tldr">해안 경계 이벤트를 위험·정상으로 분류하고 짧은 상황 보고문을 생성하는 소형 언어모델을 만들었습니다. QLoRA로 미세조정한 모델의 매크로 F1은 0.9461로, 기준 모델(0.6007)보다 크게 높았습니다.</p>
+
+<h2>초록</h2>
+<p>이 연구는 해안 경계 이벤트를 분류하고 간략한 상황 보고문을 생성하는 SLM 기반 모델을 제안합니다. 일반화한 이벤트 샘플 926개로 데이터셋을 만들어 학습·검증·테스트 데이터로 나누었습니다. QLoRA 기반 PEFT 모델이 기준 모델보다 높은 성능을 보여, 위험 탐지와 보고를 자동화할 가능성을 확인했습니다.</p>
+
+<h2>연구 과정</h2>
+<ol class="pipeline">
+  <li><strong>데이터 구축</strong>위험 라벨과 상황 보고문이 붙은 지시문 형식 샘플 926개</li>
+  <li><strong>일반화와 검토</strong>기밀·민감 정보를 빼고 해병대 인원이 검토</li>
+  <li><strong>데이터 분할</strong>학습·검증·테스트를 8:1:1로 분할</li>
+  <li><strong>기준 모델 평가</strong>kanana-1.5-2.1b-instruct를 추가 학습 없이 평가</li>
+  <li><strong>QLoRA 미세조정</strong>같은 테스트 세트에서 기준 모델과 비교</li>
+</ol>
+
+<h2>데이터 구성</h2>
+<div class="table-wrap" tabindex="0" role="region" aria-labelledby="slm-data-cap">
+  <table>
+    <caption id="slm-data-cap">라벨별 샘플 수</caption>
+    <thead><tr><th scope="col">라벨</th><th scope="col">샘플</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">위험</th><td>471</td></tr>
+      <tr><th scope="row">정상</th><td>455</td></tr>
+      <tr class="total"><th scope="row">합계</th><td>926</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>결과</h2>
+<div class="table-wrap" tabindex="0" role="region" aria-labelledby="slm-res-cap">
+  <table>
+    <caption id="slm-res-cap">테스트 세트에서 기준 모델과 QLoRA 모델의 성능</caption>
+    <thead><tr><th scope="col">모델</th><th scope="col">정확도</th><th scope="col">매크로 정밀도</th><th scope="col">매크로 재현율</th><th scope="col">매크로 F1</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">기준 모델</th><td>0.6344</td><td>0.7311</td><td>0.6444</td><td>0.6007</td></tr>
+      <tr class="total"><th scope="row">PEFT (QLoRA)</th><td>0.9462</td><td>0.9466</td><td>0.9458</td><td>0.9461</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<h2>언론 보도</h2>
+<p><a href="https://www.joongang.co.kr/article/25439388" target="_blank" rel="noopener noreferrer">한양대 ERICA와 해병대가 한국군사과학기술학회에서 AI 교육 성과를 발표<span class="sr-only">(새 탭에서 열림)</span></a> · <i>중앙일보</i>, 2026년 6월 24일. 이 논문의 바탕이 된 군·학 AI 교육 프로그램과 2026년 6월 10~12일 학술대회 발표를 다룬 기사입니다.</p>
+<figure class="news-photo">
+  <img src="../assets/news/kimst-2026.jpg" alt="2026 한국군사과학기술학회 종합학술대회 안내판 앞에 선 한양대 ERICA 교수진과 해병대 장병" width="609" height="274" loading="lazy" />
+  <figcaption>2026 한국군사과학기술학회 종합학술대회에 참석한 한양대 ERICA 교수진과 해병대 장병. 사진: 한양대 ERICA, 중앙일보 제공.</figcaption>
+</figure>
+
+<h2>인용</h2>
+<p>이선홍, 최원석, 이우준, 김유찬. &ldquo;SLM 기반 해안 경계 이벤트 위험도 분류.&rdquo; <i>2026 한국군사과학기술학회 종합학술대회</i>, 2026.</p>

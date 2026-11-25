@@ -98,10 +98,17 @@ function renderItem() {
   const related = (it.posts || []).map(postOf).filter(Boolean);
   main.innerHTML = `
     <p class="post-type">${esc(typeOf(it.type).name)}</p>
-    <h1 lang="en">${esc(it.title)}</h1>
-    <dl class="fields">${rows}</dl>
+    <div id="item-body"><h1 lang="en">${esc(it.title)}</h1>
+    <dl class="fields">${rows}</dl></div>
     ${related.length ? `<section class="related" aria-labelledby="related-title"><h2 id="related-title">관련 포스트</h2>
       <ul class="post-list">${related.map(postRow).join('')}</ul></section>` : ''}`;
+  // An item can have a fuller hand-written page; the fields above stay if it fails to load.
+  if (it.detail.body) {
+    fetch(root + it.detail.body)
+      .then((r) => (r.ok ? r.text() : Promise.reject(r.status)))
+      .then((html) => { const b = $('#item-body'); b.innerHTML = html; b.className = 'bench'; })
+      .catch(() => {});
+  }
 }
 
 /* ---------- Blog list with category filter ---------- */
