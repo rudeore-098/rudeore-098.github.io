@@ -18,7 +18,7 @@ GitHub Pages에 바로 올릴 수 있는 정적 사이트입니다(HTML·CSS·�
 | `pages/` | 블로그 글: `k-guard.html`, `research-one.html`(한국어·영어 전환), `cmc-hackathon.html`, `hackathon-review.html`, `transformer-circuits.html`(논문 리뷰, 수식은 KaTeX) |
 | `items/` | 항목 상세 본문: 논문(`k-guard.html`, `slm-coastal.html`)과 프로젝트(`seatcatcher.html`, `stackpot.html`, `mohassu.html`). `data.js` 항목의 `detail.body`로 연결하며, 불러오지 못하면 기본 항목 내용이 보입니다. |
 | `portfolio/index.html` | 예전 주소를 메인으로 넘겨 주는 페이지 |
-| `assets/`, `files/` | 썸네일·사진, 내려받는 PDF. `cv.pdf`는 `cv-source.html`을 Chrome으로 인쇄해 만들며, 다시 만드는 명령은 그 파일 맨 위 주석에 있습니다 |
+| `assets/`, `files/` | 썸네일·사진, 내려받는 PDF. `cv.pdf`는 `cv-source.html`을 Chrome으로 인쇄해 만들며, 다시 만드는 명령은 그 파일 맨 위 주석에 있습니다. CV를 바꾸면 모든 페이지 CV 버튼의 `cv.pdf?v=` 값도 올립니다 |
 | `mockups/` | 블로그 디자인 시안(사이트에 연결되지 않음) |
 
 ## 이력 항목 추가·수정 (`data.js`의 `items`)

@@ -126,7 +126,7 @@ h2 { font-size: 1.3125rem; line-height: 1.4; margin: 40px 0 8px; }
 
 /* Post pages (pages/*.html): text column in ch so it grows with the fluid --read size; the empty
    first column mirrors the toc so the article stays centred under the title. */
-.detail.post-page { font-size: 0.875rem; max-width: 96rem; display: grid; grid-template-columns: minmax(0, 1fr) [text-start] minmax(0, 72ch) [text-end] minmax(11rem, 1fr); column-gap: clamp(2rem, 4vw, 4.5rem); }
+.detail.post-page { font-size: 0.9375rem; max-width: 96rem; display: grid; grid-template-columns: minmax(0, 1fr) [text-start] minmax(0, 86ch) [text-end] minmax(11rem, 1fr); column-gap: clamp(2rem, 4vw, 4.5rem); }
 .post-page > * { grid-column: text; }
 .post-page article { line-height: 1.95; }
 .post-page article p, .post-page article li { text-wrap: pretty; }
@@ -217,7 +217,7 @@ h2 { font-size: 1.3125rem; line-height: 1.4; margin: 40px 0 8px; }
 
 @media (max-width: 64rem) {
   .resume { grid-template-columns: 1fr; grid-template-areas: "intro" "content" "sidebar"; }
-  .detail.post-page { grid-template-columns: [text-start] minmax(0, 72ch) [text-end]; justify-content: center; }
+  .detail.post-page { grid-template-columns: [text-start] minmax(0, 86ch) [text-end]; justify-content: center; }
   .toc { display: none; }
 }
 
