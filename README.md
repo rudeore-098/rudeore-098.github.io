@@ -18,7 +18,7 @@ GitHub Pages에 바로 올릴 수 있는 정적 사이트입니다(HTML·CSS·�
 | `pages/` | 블로그 글: `k-guard.html`, `research-one.html`(한국어·영어 전환), `cmc-hackathon.html`, `hackathon-review.html`, `transformer-circuits.html`(논문 리뷰, 수식은 KaTeX) |
 | `items/` | 항목 상세 본문: 논문(`k-guard.html`, `slm-coastal.html`)과 프로젝트(`seatcatcher.html`, `stackpot.html`, `mohassu.html`). `data.js` 항목의 `detail.body`로 연결하며, 불러오지 못하면 기본 항목 내용이 보입니다. |
 | `portfolio/index.html` | 예전 주소를 메인으로 넘겨 주는 페이지 |
-| `assets/`, `files/` | 썸네일·사진, 내려받는 PDF(`cv.pdf`는 아직 예시 파일) |
+| `assets/`, `files/` | 썸네일·사진, 내려받는 PDF. `cv.pdf`는 `cv-source.html`을 Chrome으로 인쇄해 만들며, 다시 만드는 명령은 그 파일 맨 위 주석에 있습니다 |
 | `mockups/` | 블로그 디자인 시안(사이트에 연결되지 않음) |
 
 ## 이력 항목 추가·수정 (`data.js`의 `items`)
@@ -37,7 +37,7 @@ GitHub Pages에 바로 올릴 수 있는 정적 사이트입니다(HTML·CSS·�
 ## 새 글 발행 순서
 
 1. `pages/k-guard.html`을 복사해 새 글을 만듭니다(같은 폴더에 두면 경로를 고칠 필요가 없습니다). 같은 이름의 파일이 이미 있는지 먼저 확인합니다.
-2. `data.js`의 `posts`에 `url`, `title`, `category`, `tags`, `summary`를 추가합니다. 새 카테고리가 필요하면 `categories`에도 넣습니다.
+2. `data.js`의 `posts` 맨 끝에 `url`, `title`, `category`, `tags`, `summary`를 추가합니다. 블로그 목록은 이 배열을 거꾸로 보여 주므로 맨 끝에 넣은 글이 가장 위에 나옵니다. 새 카테고리가 필요하면 `categories`에도 넣습니다.
 3. 글과 관련된 이력 항목이 있으면 그 항목의 `posts`에 글 주소를 넣습니다.
 4. 미리보기에서 블로그 목록·카테고리 필터·관련 포스트 링크·글의 목차를 눌러 확인합니다.
 

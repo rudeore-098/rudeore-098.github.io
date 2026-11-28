@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Wonseok Choi · CV</title>
+<!-- Source of files/cv.pdf. Rebuild after editing:
+     "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --no-pdf-header-footer --virtual-time-budget=5000 --print-to-pdf=files/cv.pdf files/cv-source.html -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap" />
+<style>
+  @page { size: A4; margin: 14mm 15mm; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: 'Noto Serif', Georgia, serif; font-size: 9.6pt; line-height: 1.45; color: #1a1a1a; }
+  .updated { text-align: right; font-size: 7.5pt; color: #555; margin: 0; }
+  h1 { text-align: center; font-size: 25pt; margin: 0 0 4pt; line-height: 1.1; }
+  .sub { text-align: center; margin: 0; font-size: 8.8pt; }
+  h2 { font-size: 11pt; letter-spacing: 0.02em; margin: 13pt 0 6pt; padding-bottom: 3pt; border-bottom: 0.8pt solid #333; }
+  .row { display: flex; justify-content: space-between; gap: 12pt; }
+  .row b { font-size: 10pt; }
+  .date { color: #555; white-space: nowrap; }
+  p { margin: 1.5pt 0; }
+  .muted { font-style: italic; color: #444; font-size: 8.8pt; }
+  .entry { margin-top: 6pt; }
+  .project { margin: 6pt 0 0 14pt; }
+  .project > b { font-size: 10pt; }
+  .sub-entry { margin: 5pt 0 0 14pt; }
+  ul { margin: 2pt 0 0; padding-left: 13pt; }
+  li { margin: 1.5pt 0; }
+  ol.pubs { list-style: none; margin: 0; padding: 0; }
+  ol.pubs li { display: grid; grid-template-columns: 20pt 1fr; margin-top: 6pt; }
+  ol.pubs .n { color: #555; }
+  a { color: inherit; text-decoration: none; }
+</style>
+</head>
+<body>
+  <p class="updated">Last updated: November 2026</p>
+  <h1>Wonseok Choi</h1>
+  <p class="sub">Computer Science Undergraduate · Soongsil University</p>
+  <p class="sub"><a href="mailto:rudeore0928@soongsil.ac.kr">rudeore0928@soongsil.ac.kr</a> &nbsp;·&nbsp; <a href="https://github.com/rudeore-098">github.com/rudeore-098</a> &nbsp;·&nbsp; <a href="https://rudeore-098.github.io">rudeore-098.github.io</a></p>
+
+  <h2>EDUCATION</h2>
+  <div class="row"><b>Soongsil University</b><span class="date">2023 – Present</span></div>
+  <p class="muted">B.S. in Computer Science · Seoul, South Korea</p>
+  <p>Expected graduation: 2029</p>
+  <p>Research interests: NLP, mechanistic interpretability, and LLM evaluation.</p>
+
+  <h2>EXPERIENCE</h2>
+  <div class="row"><b>Republic of Korea Marine Corps Headquarters</b><span class="date">Feb – Nov 2026</span></div>
+  <p class="muted">AI Developer · AI &amp; DATA Task Force</p>
+  <div class="project">
+    <b>MARS — AI Agent for Closed Military Networks</b>
+    <div class="sub-entry">
+      <p class="muted">Retrieval-Augmented Generation (RAG) — Document Question Answering</p>
+      <ul>
+        <li>Built BM25/BGE-M3 hybrid retrieval with reranking and independent retrieval evaluation.</li>
+        <li>Compared structured outputs and implemented evidence-grounded answer revision.</li>
+      </ul>
+    </div>
+    <div class="sub-entry">
+      <p class="muted">NeuroDomain-Translate — Domain-Specific Translation</p>
+      <ul>
+        <li>Implemented glossary and translation-memory retrieval, terminology checks, and retries.</li>
+        <li>Compared glossary-guided and baseline translations; analyzed consistency and refusals.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>PUBLICATIONS &amp; MANUSCRIPTS</h2>
+  <ol class="pubs">
+    <li><span class="n">[1]</span><div><b>Building a Military Domain-Specific LLM Guardrail and Benchmark</b>
+      <p><b>Wonseok Choi</b> (First author)</p>
+      <p class="muted">Ready for submission</p></div></li>
+    <li><span class="n">[2]</span><div><b>Small Language Model-Based Risk Classification of Coastal Surveillance Events</b>
+      <p>Seon Hong Lee, <b>Wonseok Choi</b>, Woojoon Lee, Yuchan Kim</p>
+      <p class="muted">Korea Institute of Military Science and Technology (KIMST) Annual Conference, 2026</p></div></li>
+  </ol>
+
+  <h2>SELECTED PROJECTS</h2>
+  <div class="row"><b>SeatCatcher — Backend Developer</b><span class="date">May – Aug 2025</span></div>
+  <p>Built reporting and route-history APIs, push notifications, and per-user access control.</p>
+  <div class="row entry"><b>STACKPOT — Backend Developer</b><span class="date">2024 – Feb 2025</span></div>
+  <p>Implemented authentication, feed/task APIs, and automated blue–green deployment.</p>
+
+  <h2>HONORS &amp; AWARDS</h2>
+  <div class="row"><b>Grand Prize — 11th NE(O)RDINARY HACKATHON</b><span class="date">Nov 2026</span></div>
+
+  <h2>SKILLS</h2>
+  <p>Programming: Python, Java &nbsp;·&nbsp; ML/NLP: PyTorch, scikit-learn, Hugging Face</p>
+  <p>Tools: Git, Docker, Linux</p>
+</body>
+</html>

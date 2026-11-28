@@ -117,7 +117,8 @@ function renderBlog() {
   const count = (id) => S.posts.filter((p) => id === 'all' || p.category === id).length;
   const chip = (id, name) => `<li><a href="${id === 'all' ? './' : `?category=${id}`}"${id === current ? ' aria-current="true"' : ''}>${esc(name)}<span class="count">${count(id)}</span></a></li>`;
   $('#filters').innerHTML = chip('all', '전체') + S.categories.map((c) => chip(c.id, c.name)).join('');
-  const posts = S.posts.filter((p) => current === 'all' || p.category === current);
+  // Posts carry no dates, so data.js order stands in for age: the last one added is the newest.
+  const posts = S.posts.filter((p) => current === 'all' || p.category === current).reverse();
   $('#posts').innerHTML = posts.length ? posts.map(postRow).join('') : '<li class="empty">이 카테고리에는 아직 글이 없습니다. <a href="./">전체 글 보기</a></li>';
 }
 
