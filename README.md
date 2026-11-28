@@ -15,7 +15,7 @@ GitHub Pages에 바로 올릴 수 있는 정적 사이트입니다(HTML·CSS·�
 | `item/index.html` | 항목 상세. 주소는 `item/?id=항목ID` |
 | `blog/index.html` | 블로그 목록과 카테고리 필터. 주소는 `blog/?category=카테고리ID` |
 | `timeline/index.html` | 연도별 아카이브: 날짜가 있는 항목을 시작 연도별로 묶어 보여줍니다 |
-| `pages/` | 블로그 글: `k-guard.html`, `research-one.html`(한국어·영어 전환), `cmc-hackathon.html`, `hackathon-review.html` |
+| `pages/` | 블로그 글: `k-guard.html`, `research-one.html`(한국어·영어 전환), `cmc-hackathon.html`, `hackathon-review.html`, `transformer-circuits.html`(논문 리뷰, 수식은 KaTeX) |
 | `items/` | 항목 상세 본문: 논문(`k-guard.html`, `slm-coastal.html`)과 프로젝트(`seatcatcher.html`, `stackpot.html`, `mohassu.html`). `data.js` 항목의 `detail.body`로 연결하며, 불러오지 못하면 기본 항목 내용이 보입니다. |
 | `portfolio/index.html` | 예전 주소를 메인으로 넘겨 주는 페이지 |
 | `assets/`, `files/` | 썸네일·사진, 내려받는 PDF(`cv.pdf`는 아직 예시 파일) |

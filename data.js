@@ -23,7 +23,7 @@ window.SITE = {
     ],
   },
 
-  categories: [{ id: 'ai-research', name: 'AI·연구' }, { id: 'project', name: '프로젝트' }, { id: 'review', name: '후기' }],
+  categories: [{ id: 'ai-research', name: 'AI·연구' }, { id: 'project', name: '프로젝트' }, { id: 'review', name: '후기' }, { id: 'paper-review', name: '논문 리뷰' }],
 
   posts: [
     {
@@ -53,6 +53,13 @@ window.SITE = {
       category: 'review',
       tags: ['해커톤', '대상', 'AWS'],
       summary: 'CMC와 UMC가 함께한 무박 2일 해커톤에서 서버와 AWS 인프라를 맡아 대상을 받기까지의 기록입니다.',
+    },
+    {
+      url: 'pages/transformer-circuits.html', lang: 'ko',
+      title: 'A Mathematical Framework for Transformer Circuits',
+      category: 'paper-review',
+      tags: ['Transformer', '해석 가능성', 'Induction Head'],
+      summary: 'Transformer가 학습한 가중치를 역설계해 내부 계산을 설명하는 논문을 Residual Stream, QK·OV Circuit, Induction Head를 중심으로 정리했습니다.',
     },
   ],
 

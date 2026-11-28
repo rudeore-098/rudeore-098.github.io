@@ -191,6 +191,8 @@ h2 { font-size: 1.3125rem; line-height: 1.4; margin: 40px 0 8px; }
 .detail th, .detail td { text-align: left; padding: 10px 12px 10px 0; border-bottom: 1px solid var(--line); }
 .detail thead th { font-size: 0.8125rem; color: var(--ink-2); border-bottom: 1px solid var(--ink); }
 .detail tbody tr:last-child th, .detail tbody tr:last-child td { font-weight: 700; }
+.detail tbody tr.plain:last-child td { font-weight: 400; }
+.detail .math { overflow-x: auto; overflow-y: hidden; }
 
 /* ---------- Timeline ---------- */
 #timeline { margin-top: 36px; }
